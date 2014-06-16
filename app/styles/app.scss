@@ -1,1 +1,9 @@
 @import 'vendor/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+
+.sidebar {
+  @include make-xs-column(2);
+  background: $gray-lighter;
+}
+.pane {
+  @include make-xs-column(10);
+}

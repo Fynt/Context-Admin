@@ -1,3 +1,21 @@
-<h2 id='title'>Welcome to Ember.js</h2>
+<header class="navbar navbar-default">
+  <div class="navbar-header">
+    {{#link-to 'index' class="navbar-brand"}}Context Admin{{/link-to}}
+  </div>
+</header>
 
-{{outlet}}
+<nav class="sidebar">
+  <ul class="nav nav-pills nav-stacked">
+    {{#each}}
+      <li>
+        {{#link-to 'extension' slug}}
+          {{name}}
+        {{/link-to}}
+      </li>
+    {{/each}}
+  </ul>
+</nav>
+
+<section class="pane">
+  {{outlet}}
+</section>
