@@ -1,0 +1,9 @@
+{{#with route as route}}
+  {{#each links}}
+    {{#link-li}}
+      {{#link-to route this}}
+        {{name}}
+      {{/link-to}}
+    {{/link-li}}
+  {{/each}}
+{{/with}}
