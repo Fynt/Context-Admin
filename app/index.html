@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ContextAdmin</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/context-admin.css">
+  </head>
+  <body>
+    <script>
+      window.ENV = {{ENV}};
+    </script>
+    <script src="assets/context-admin.js"></script>
+    <script>
+      window.ContextAdmin = require('context-admin/app')['default'].create(ENV.APP);
+    </script>
+  </body>
+</html>
