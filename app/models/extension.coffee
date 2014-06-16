@@ -1,13 +1,14 @@
-Extension = Ember.model.extend
+Extension = DS.Model.extend
   name: DS.attr 'string'
   slug: DS.attr 'string'
-  blueprints: DS.hasMany 'blueprint'
+  #blueprints: DS.hasMany 'blueprint'
+
 
 Extension.reopenClass
   FIXTURES: [
-    { name: 'Users', slug: 'users', blueprints: [] }
-    { name: 'Pages', slug: 'pages', blueprints: [] }
-    { name: 'Store', slug: 'store', blueprints: [] }
+    { id: 1, name: 'Users', slug: 'users', blueprints: [] }
+    { id: 2, name: 'Pages', slug: 'pages', blueprints: [] }
+    { id: 3, name: 'Store', slug: 'store', blueprints: [] }
   ]
 
 `export default Extension`
