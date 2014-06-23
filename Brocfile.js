@@ -15,6 +15,12 @@ var app = new EmberApp({
 
 // Use this to add additional libraries to the generated output files.
 app.import('vendor/ember-data/ember-data.js');
+app.import('vendor/jquery-ui/ui/jquery-ui.custom.js');
+app.import('vendor/jquery-mousewheel/jquery.mousewheel.js');
+app.import('vendor/blueimp-md5/js/md5.min.js');
+app.import('vendor/moment/min/moment.min.js');
+app.import('vendor/antiscroll/antiscroll.js');
+app.import('vendor/ember-table/dist/ember-table.js');
 
 // If the library that you are including contains AMD or ES6 modules that
 // you would like to import into your application please specify an
