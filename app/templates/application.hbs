@@ -1,6 +1,12 @@
-<header class="navbar navbar-default">
-  <div class="navbar-header">
-    {{#link-to 'index' class="navbar-brand"}}Context Admin{{/link-to}}
+<header class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      {{#link-to 'index' class="navbar-brand"}}Context Admin{{/link-to}}
+    </div>
+
+    <div class="collapse navbar-collapse pull-right">
+      <button class="btn navbar-btn" {{action 'openModal' 'login'}}>Login</button>
+    </div>
   </div>
 </header>
 
@@ -9,5 +15,7 @@
 </nav>
 
 <section class="pane">
+  {{outlet modal}}
+
   {{outlet}}
 </section>
