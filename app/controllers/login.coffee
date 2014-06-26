@@ -7,8 +7,12 @@ LoginController = Ember.Controller.extend
       data =
         email: @get 'email'
         password: @get 'password'
-      console.log data
 
-      @send 'closeModal'
+      Ember.$.post 'http://localhost:5000/login', data
+      .done (data) ->
+        @session.set 'loggedIn', true
+        @send 'closeModal'
+      .catch (error) ->
+        console.log error
 
 `export default LoginController`

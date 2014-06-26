@@ -1,5 +1,8 @@
 ApplicationRoute = Ember.Route.extend
   actions:
+    logout: ->
+      @session.set 'loggedIn', false
+
     openModal: (modalName) ->
       @render modalName,
         into: 'application'

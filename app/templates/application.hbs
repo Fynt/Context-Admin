@@ -5,7 +5,11 @@
     </div>
 
     <div class="collapse navbar-collapse pull-right">
+    {{#if session.loggedIn}}
+      <button class="btn navbar-btn" {{action 'logout'}}>Logout</button>
+    {{else}}
       <button class="btn navbar-btn" {{action 'openModal' 'login'}}>Login</button>
+    {{/if}}
     </div>
   </div>
 </header>

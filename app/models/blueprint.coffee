@@ -1,4 +1,4 @@
-Blueprint= DS.Model.extend
+Blueprint = DS.Model.extend
   name: DS.attr 'string'
   slug: DS.attr 'string'
   extension: DS.belongsTo 'extension'
