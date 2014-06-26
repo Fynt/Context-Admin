@@ -5,7 +5,12 @@
     </div>
 
     <div class="collapse navbar-collapse pull-right">
+    {{#if session.loggedIn}}
+      <span>{{gravatar-image email=session.email size=34}}</span>
+      <button class="btn navbar-btn" {{action 'logout'}}>Logout</button>
+    {{else}}
       <button class="btn navbar-btn" {{action 'openModal' 'login'}}>Login</button>
+    {{/if}}
     </div>
   </div>
 </header>

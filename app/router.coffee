@@ -4,7 +4,7 @@ Router = Ember.Router.extend
 
 Router.map ->
   @resource 'extension', { path: '/:slug' }
-  #@resource 'blueprint', { path: '/:slug/:blueprint' }
+  @resource 'blueprint', { path: '/:slug/:blueprint' }
   return
 
 `export default Router`
