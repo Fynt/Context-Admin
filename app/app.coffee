@@ -1,11 +1,8 @@
 `import Resolver from 'ember/resolver'`
 `import loadInitializers from 'ember/load-initializers'`
+`import Session from './auth/session'`
 
 Ember.MODEL_FACTORY_INJECTIONS = true
-
-#TODO There has to be a better place to define this.
-Session = Ember.Object.extend
-  loggedIn: false
 
 App = Ember.Application.extend
   modulePrefix: 'context-admin' # TODO: loaded via config
