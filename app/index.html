@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Context Admin</title>
+    <title>ContextAdmin</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,11 +14,13 @@
   </head>
   <body>
     <script>
-      window.ENV = {{ENV}};
+      window.ContextAdminENV = {{ENV}};
+      window.EmberENV = window.ContextAdminENV.EmberENV;
     </script>
+    <script src="assets/vendor.js"></script>
     <script src="assets/context-admin.js"></script>
     <script>
-      window.ContextAdmin = require('context-admin/app')['default'].create(ENV.APP);
+      window.ContextAdmin = require('context-admin/app')['default'].create(ContextAdminENV.APP);
     </script>
   </body>
 </html>
