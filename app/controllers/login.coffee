@@ -14,17 +14,11 @@ LoginController = Ember.Controller.extend
       # Clear the previous error message if there are any.
       @set 'error', ''
 
-      # Get the auth credentials.
-      data = @getProperties 'email', 'password'
-
-      Ember.$.post 'http://localhost:5000/user/login', data
-      .done (data) =>
-        if data and data.email?
-          @session.setProperties data
-          @session.set 'loggedIn', true
-
-          @send 'closeModal'
-      .fail (error) =>
+      @session.login @get('email'), @get('password')
+      .then (data) =>
+        console.log "HERE"
+        @send 'closeModal'
+      , (error) =>
         switch error.status
           when 400 then @set 'error', "Email and password are required."
           when 401 then @set 'error', "Authentication failed."
