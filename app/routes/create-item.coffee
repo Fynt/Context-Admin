@@ -1,7 +1,16 @@
 CreateItemRoute = Ember.Route.extend
 
   model: (params) ->
-    extension: @store.find('extension', slug: params.extension_slug)
-    blueprint: @store.find('blueprint', slug: params.extension_slug)
+    extension = @store.find 'extension', slug: params.extension_slug
+    .then (extensions) ->
+      extensions.get 'firstObject'
+
+    blueprint = @store.find 'blueprint', slug: params.blueprint_slug
+    .then (blueprints) ->
+      blueprints.get 'firstObject'
+
+    Ember.RSVP.hash
+      'extension': extension
+      'blueprint': blueprint
 
 `export default CreateItemRoute`

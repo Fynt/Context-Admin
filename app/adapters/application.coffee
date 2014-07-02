@@ -1,8 +1,10 @@
 ContextFixtureAdapter = DS.FixtureAdapter.extend
-  queryFixtures: (fixture, query, type) ->
-    fixture.filter (item) ->
-      for prop of query
-        return false  unless item[prop] is query[prop]
+  queryFixtures: (records, query, type) ->
+    records.filter (record) ->
+      for key of query
+        continue  unless query.hasOwnProperty(key)
+        value = query[key]
+        return false  if record[key] isnt value
       true
 
 `export default ContextFixtureAdapter`
