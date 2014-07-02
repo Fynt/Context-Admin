@@ -1,4 +1,5 @@
 ApplicationRoute = Ember.Route.extend
+
   actions:
     logout: ->
       @session.set 'loggedIn', false

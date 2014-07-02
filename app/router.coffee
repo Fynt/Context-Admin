@@ -3,8 +3,11 @@ Router = Ember.Router.extend
   rootURL: '/admin/'
 
 Router.map ->
-  @resource 'extension', { path: '/:slug' }
-  @resource 'blueprint', { path: '/:slug/:blueprint' }
+  #@resource 'extension', { path: '/:slug' }
+  #@resource 'blueprint', { path: '/:slug/:blueprint' }
+
+  @route 'create_item', path: '/:extension_slug/:blueprint_slug/create'
+
   return
 
 `export default Router`
