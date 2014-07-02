@@ -16,7 +16,6 @@ LoginController = Ember.Controller.extend
 
       @session.login @get('email'), @get('password')
       .then (data) =>
-        console.log "HERE"
         @send 'closeModal'
       , (error) =>
         switch error.status
