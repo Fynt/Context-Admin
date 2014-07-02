@@ -13,10 +13,8 @@ SessionInitializer =
 
     Session.create().restore()
     .then (data) ->
-      console.log data
-
       # Get the session data and apply it to the Session class.
-      data[loggedIn] = true
+      data['loggedIn'] = true
       Session.reopen data
 
       application.advanceReadiness()

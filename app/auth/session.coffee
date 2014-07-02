@@ -3,9 +3,14 @@ Session = Ember.Object.extend
 
   login: (email, password) ->
     new Promise (resolve, reject) =>
-      Ember.$.post 'http://localhost:5000/user/login',
-        email: email
-        password: password
+      Ember.$.ajax
+        type: 'POST'
+        url: 'http://localhost:5000/user/login',
+        data:
+          email: email
+          password: password
+        xhrFields:
+          withCredentials: true
       .done (data) =>
         if data and data.email?
           @setProperties data
@@ -17,7 +22,11 @@ Session = Ember.Object.extend
 
   restore: ->
     new Promise (resolve, reject) =>
-      Ember.$.get 'http://localhost:5000/user/session'
+      Ember.$.ajax
+        type: 'GET'
+        url: 'http://localhost:5000/user/session'
+        xhrFields:
+          withCredentials: true
       .done (data) =>
         if data and data.email?
           @setProperties data
