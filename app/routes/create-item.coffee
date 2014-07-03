@@ -1,6 +1,7 @@
 CreateItemRoute = Ember.Route.extend
 
   model: (params) ->
+
     extension = @store.find 'extension', slug: params.extension_slug
     .then (extensions) ->
       extensions.get 'firstObject'
