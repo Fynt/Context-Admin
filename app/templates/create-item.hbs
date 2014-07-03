@@ -1,5 +1,9 @@
 <h1>{{ extension.name }}: {{ blueprint.name }}</h1>
 
+{{#each blueprint.form}}
+  - {{render-component type property="wut"}}
+{{/each}}
+
 {{#em-form model=this.item action="create" submit_button=false}}
   {{em-input property="test" label="Testing"}}
   {{em-text property="test2" label="Testing 2"}}
