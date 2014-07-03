@@ -12,5 +12,6 @@ CreateItemRoute = Ember.Route.extend
     Ember.RSVP.hash
       'extension': extension
       'blueprint': blueprint
+      'item_data': {}
 
 `export default CreateItemRoute`
