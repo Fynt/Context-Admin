@@ -18,11 +18,8 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 
 app.import('vendor/ember-data/ember-data.js');
-app.import('vendor/jquery-ui/ui/jquery-ui.custom.js');
-app.import('vendor/jquery-mousewheel/jquery.mousewheel.js');
 app.import('vendor/blueimp-md5/js/md5.min.js');
 app.import('vendor/moment/min/moment.min.js');
-app.import('vendor/antiscroll/antiscroll.js');
-app.import('vendor/ember-table/dist/ember-table.js');
+app.import('vendor/ember-forms/dist/ember_forms.js');
 
 module.exports = app.toTree();

@@ -1,5 +1,8 @@
 <h1>{{ extension.name }}: {{ blueprint.name }}</h1>
 
-<form class="form-inline" role="form" {{action "create" on="submit"}}>
+{{#em-form model=this action="create" submit_button=false}}
+  {{em-input property="test" label="Testing"}}
+  {{em-text property="test2" label="Testing 2"}}
+
   <button type="submit" class="btn btn-primary">Create</button>
-</form>
+{{/em-form}}
