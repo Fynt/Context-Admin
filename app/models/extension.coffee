@@ -5,8 +5,7 @@ Extension = DS.Model.extend
 
 Extension.reopenClass
   FIXTURES: [
-    { id: 1, name: 'Users', slug: 'users', blueprints: [1, 2] }
-    { id: 3, name: 'Store', slug: 'store', blueprints: [3, 4] }
+    { id: 1, name: 'Blog', slug: 'blog', blueprints: [1, 2] }
   ]
 
 `export default Extension`

@@ -9,9 +9,16 @@ CreateItemRoute = Ember.Route.extend
     .then (blueprints) ->
       blueprints.get 'firstObject'
 
+    form = @blueprints.get_form params.extension_slug, params.blueprint_slug
+    .then (form) ->
+      form
+    , (error) ->
+      console.log error
+
     Ember.RSVP.hash
-      'extension': extension
-      'blueprint': blueprint
-      'item': @store.createRecord 'item'
+      extension: extension
+      blueprint: blueprint
+      item: @store.createRecord 'item'
+      form: form
 
 `export default CreateItemRoute`

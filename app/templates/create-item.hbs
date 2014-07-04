@@ -1,7 +1,7 @@
 <h1>{{ extension.name }}: {{ blueprint.name }}</h1>
 
 {{#em-form model=this.item action="create" submit_button=false}}
-  {{#each blueprint.form}}
+  {{#each form}}
     {{blueprint-input type property=field label=label}}
   {{/each}}
 

@@ -1,10 +1,10 @@
-`import Ember from 'ember';`
-
+# Gives us a way to load components dynamically.
+# @see http://stackoverflow.com/questions/18972202/how-can-i-invoke-an-ember-component-dynamically-via-a-variable
 BlueprintInput = Ember.Handlebars.makeBoundHelper (type, options) ->
   switch type
-    when 'richtext' then component_name = 'em-text'
-    else component_name = 'em-input'
+    when 'richtext' then component_name = 'text'
+    else component_name = 'input'
 
-  Ember.Handlebars.helpers[component_name].call @, options
+  Ember.Handlebars.helpers["em-#{component_name}"].call @, options
 
 `export default BlueprintInput`

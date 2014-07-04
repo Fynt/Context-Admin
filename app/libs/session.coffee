@@ -1,4 +1,6 @@
 Session = Ember.Object.extend
+
+  # @property [Boolean]
   loggedIn: false
 
   login: (email, password) ->
@@ -9,8 +11,6 @@ Session = Ember.Object.extend
         data:
           email: email
           password: password
-        xhrFields:
-          withCredentials: true
       .done (data) =>
         if data and data.email?
           @setProperties data
@@ -25,8 +25,6 @@ Session = Ember.Object.extend
       Ember.$.ajax
         type: 'GET'
         url: 'http://localhost:5000/user/session'
-        xhrFields:
-          withCredentials: true
       .done (data) =>
         if data and data.email?
           @setProperties data

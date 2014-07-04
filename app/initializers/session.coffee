@@ -1,13 +1,13 @@
-`import Session from '../auth/session'`
+`import Session from '../libs/session'`
 
 SessionInitializer =
   name: 'session'
+  after: 'jquery'
 
   initialize: (container, application) ->
     application.deferReadiness()
 
     application.register 'session:current', Session, singleton: true
-    application.inject 'application', 'session', 'session:current'
     application.inject 'route', 'session', 'session:current'
     application.inject 'controller', 'session', 'session:current'
 
