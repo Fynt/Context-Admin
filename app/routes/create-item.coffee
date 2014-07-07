@@ -5,15 +5,15 @@ CreateItemRoute = Ember.Route.extend
     .then (extensions) ->
       extensions.get 'firstObject'
 
-    blueprint = @store.find 'blueprint', slug: params.blueprint_slug
+    blueprint = @store.find 'blueprint',
+      extension: params.extension_slug
+      slug: params.blueprint_slug
     .then (blueprints) ->
       blueprints.get 'firstObject'
 
     form = @blueprints.get_form params.extension_slug, params.blueprint_slug
     .then (form) ->
       form
-    , (error) ->
-      console.log error
 
     Ember.RSVP.hash
       extension: extension

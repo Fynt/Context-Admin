@@ -1,3 +1,8 @@
+# REST Adapter
+ContextRESTAdapter = DS.RESTAdapter.reopen
+  host: 'http://localhost:5000'
+
+# Fixture Adapter
 ContextFixtureAdapter = DS.FixtureAdapter.extend
   queryFixtures: (records, query, type) ->
     records.filter (record) ->
@@ -7,4 +12,6 @@ ContextFixtureAdapter = DS.FixtureAdapter.extend
         return false  if record[key] isnt value
       true
 
-`export default ContextFixtureAdapter`
+#TODO: Switch between the two following adapters based on environment.
+`export default ContextRESTAdapter`
+#`export default ContextFixtureAdapter`
