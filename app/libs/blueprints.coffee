@@ -62,11 +62,11 @@ Blueprints = Ember.Object.extend
       , (error) ->
         reject error
 
-  # @param item [Item] The base object to add attributes to.
+  # @param model_class [DS.Model] The base model to add attributes to.
   # @param extension [String] The slug name of the extension.
   # @param blueprint [String] The slug name of the blueprint.
   # @return [Promise]
-  get_item: (item, extension, blueprint) ->
+  get_item: (model_class, extension, blueprint) ->
     attributes = {}
 
     new Promise (resolve, reject) =>
@@ -79,20 +79,29 @@ Blueprints = Ember.Object.extend
             #TODO Make this more dynamic.
             attributes[field] = DS.attr 'string'
 
-        item.reopen attributes
-        resolve item
+        model_class.reopen attributes
+        resolve model_class.create()
+      , (error) ->
+        reject error
 
+  # Loads the extension from the server.
+  #
   # @private
   # @return [Promise]
   _load_extensions: ->
     Ember.$.ajax
       url: 'http://localhost:5000/extensions'
 
+  # Loads a definition from the server based on extension and blueprint.
+  #
   # @private
   # @param extension [String]
   # @param blueprint [String]
   # @return [Promise]
   _load_definition: (extension, blueprint) ->
+    if not extension? or not blueprint?
+      throw new Error "You need to specify an extension and blueprint."
+
     Ember.$.ajax
       url: "http://localhost:5000/#{extension}/#{blueprint}/definition"
 
