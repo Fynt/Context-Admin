@@ -15,10 +15,15 @@ CreateItemRoute = Ember.Route.extend
     .then (form) ->
       form
 
+    item = @blueprints.get_item @store.createRecord('item'),
+      params.extension_slug, params.blueprint_slug
+    .then (item) ->
+      item
+
     Ember.RSVP.hash
       extension: extension
       blueprint: blueprint
-      item: @store.createRecord 'item'
+      item: item
       form: form
 
 `export default CreateItemRoute`

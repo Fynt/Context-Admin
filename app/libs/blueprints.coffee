@@ -62,6 +62,26 @@ Blueprints = Ember.Object.extend
       , (error) ->
         reject error
 
+  # @param item [Item] The base object to add attributes to.
+  # @param extension [String] The slug name of the extension.
+  # @param blueprint [String] The slug name of the blueprint.
+  # @return [Promise]
+  get_item: (item, extension, blueprint) ->
+    attributes = {}
+
+    new Promise (resolve, reject) =>
+      @definition extension, blueprint
+      .then (definition) ->
+        for field of definition
+          options = definition[field]
+
+          if options.type?
+            #TODO Make this more dynamic.
+            attributes[field] = DS.attr 'string'
+
+        item.reopen attributes
+        resolve item
+
   # @private
   # @return [Promise]
   _load_extensions: ->

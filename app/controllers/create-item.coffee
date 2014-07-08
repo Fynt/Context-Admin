@@ -3,6 +3,7 @@ CreateItemController = Ember.ObjectController.extend
   actions:
     create: ->
       model = @get 'model'
+
       item = model.item
       blueprint = model.blueprint
 
