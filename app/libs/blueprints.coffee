@@ -70,11 +70,11 @@ Blueprints = Ember.Object.extend
   # Gets a model instance which has additional attributes based on the blueprint
   #   definition.
   #
-  # @param model_class [DS.Model] The base model to add attributes to.
+  # @param model [DS.Model] The base model to add attributes to.
   # @param extension [String] The slug name of the extension.
   # @param blueprint [String] The slug name of the blueprint.
   # @return [Promise]
-  get_item: (model_class, extension, blueprint) ->
+  get_item: (model, extension, blueprint) ->
     attributes = {}
 
     new Promise (resolve, reject) =>
@@ -87,9 +87,8 @@ Blueprints = Ember.Object.extend
             #TODO Make this more dynamic.
             attributes[field] = DS.attr 'string'
 
-        model_class.reopen attributes
-        #resolve model_class.create()
-        resolve {}
+        model.reopen attributes
+        resolve model
 
   # Loads the extensions from the server.
   #

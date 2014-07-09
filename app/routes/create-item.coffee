@@ -17,8 +17,8 @@ CreateItemRoute = Ember.Route.extend
 
     item = @blueprints.get_item @store.modelFor('item'), params.extension_slug,
       params.blueprint_slug
-    .then (item) ->
-      item
+    .then (item) =>
+      @store.createRecord item
 
     Ember.RSVP.hash
       extension: extension
