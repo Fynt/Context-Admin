@@ -37,6 +37,9 @@ Blueprints = Ember.Object.extend
       else
         resolve @_definitions[key]
 
+  # Gets a form config, which is used to render the form in the template based
+  #   on the blueprint definition.
+  #
   # @param extension [String] The slug name of the extension.
   # @param blueprint [String] The slug name of the blueprint.
   # @return [Promise]
@@ -62,6 +65,9 @@ Blueprints = Ember.Object.extend
       , (error) ->
         reject error
 
+  # Gets a model instance which has additional attributes based on the blueprint
+  #   definition.
+  #
   # @param model_class [DS.Model] The base model to add attributes to.
   # @param extension [String] The slug name of the extension.
   # @param blueprint [String] The slug name of the blueprint.
@@ -84,7 +90,7 @@ Blueprints = Ember.Object.extend
       , (error) ->
         reject error
 
-  # Loads the extension from the server.
+  # Loads the extensions from the server.
   #
   # @private
   # @return [Promise]
