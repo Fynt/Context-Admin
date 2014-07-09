@@ -15,7 +15,7 @@ CreateItemRoute = Ember.Route.extend
     .then (form) ->
       form
 
-    item = @blueprints.get_item @store.modelFor 'item', params.extension_slug,
+    item = @blueprints.get_item @store.modelFor('item'), params.extension_slug,
       params.blueprint_slug
     .then (item) ->
       item

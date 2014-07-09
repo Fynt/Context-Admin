@@ -34,6 +34,8 @@ Blueprints = Ember.Object.extend
         .then (definition) =>
           @_definitions[key] = definition
           resolve definition
+        , (error) ->
+          reject error
       else
         resolve @_definitions[key]
 
@@ -86,9 +88,8 @@ Blueprints = Ember.Object.extend
             attributes[field] = DS.attr 'string'
 
         model_class.reopen attributes
-        resolve model_class.create()
-      , (error) ->
-        reject error
+        #resolve model_class.create()
+        resolve {}
 
   # Loads the extensions from the server.
   #
