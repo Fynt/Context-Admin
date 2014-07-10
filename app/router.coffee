@@ -7,6 +7,7 @@ Router.map ->
   #@resource 'blueprint', { path: '/:slug/:blueprint' }
 
   @route 'create-item', path: '/:extension_slug/:blueprint_slug/create'
+  @route 'update-item', path: '/:extension_slug/:blueprint_slug/:id'
 
   return
 
