@@ -3,11 +3,9 @@ Router = Ember.Router.extend
   rootURL: '/admin/'
 
 Router.map ->
-  #@resource 'extension', { path: '/:slug' }
-  #@resource 'blueprint', { path: '/:slug/:blueprint' }
-
-  @route 'create-item', path: '/:extension_slug/:blueprint_slug/create'
-  @route 'update-item', path: '/:extension_slug/:blueprint_slug/:id'
+  @route 'item-index', path: '/:extension_slug/:blueprint_slug'
+  @route 'item-create', path: '/:extension_slug/:blueprint_slug/create'
+  @route 'item-update', path: '/:extension_slug/:blueprint_slug/:id'
 
   return
 
