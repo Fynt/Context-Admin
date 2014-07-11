@@ -4,11 +4,13 @@
   <tr>
       <th>ID</th>
       <th>Created At</th>
+      <td></td>
   </tr>
   {{#each items}}
   <tr>
     <td>{{id}}</td>
     <td>{{created_at}}</td>
+    <td><button {{action "destroy" this}} class="btn">Delete</button></td>
   </tr>
   {{/each}}
 </table>
