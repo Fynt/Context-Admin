@@ -1,5 +1,9 @@
 <h1>{{ extension.name }}: {{ blueprint.name }}</h1>
 
+{{#link-to 'item-create' extension.slug blueprint.slug class="btn btn-primary"}}
+  Create a {{ extension.name }} {{ blueprint.name }}
+{{/link-to}}
+
 <table class="table table-hover">
   <tr>
       <th>ID</th>
