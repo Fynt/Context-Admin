@@ -3,7 +3,10 @@ Context-Admin
 
 Admin ember app for context.
 
-To get started, I think you'll just need to:
+Running
+-------
+
+To get started, you'll need to:
 
 `npm install -g ember-cli`
 
@@ -11,6 +14,4 @@ To get started, I think you'll just need to:
 
 `bower install`
 
-`ember server`
-
-I THINK.
+`npm start`
