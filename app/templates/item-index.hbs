@@ -12,8 +12,10 @@
   </tr>
   {{#each items}}
   <tr>
-    <td>{{id}}</td>
-    <td>{{created_at}}</td>
+    <td>
+      {{#link-to 'item-update' this}}{{id}}{{/link-to}}
+    </td>
+    <td>{{relative-time date=created_at}}</td>
     <td><button {{action "destroy" this}} class="btn">Delete</button></td>
   </tr>
   {{/each}}
