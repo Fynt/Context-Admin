@@ -8,6 +8,7 @@
   <tr>
       <th>ID</th>
       <th>Email</th>
+      <th>Last Login</th>
       <th>Created At</th>
       <th>Updated At</th>
       <td></td>
@@ -20,6 +21,7 @@
     <td>
       {{#link-to 'users.update' this}}{{email}}{{/link-to}}
     </td>
+    <td>{{relative-time date=last_login}}</td>
     <td>{{relative-time date=created_at}}</td>
     <td>{{relative-time date=updated_at}}</td>
     <td><button {{action "destroy" this}} class="btn">Delete</button></td>
