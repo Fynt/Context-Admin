@@ -1,6 +1,7 @@
 UsersUpdateController = Ember.ObjectController.extend
-  renderTemplate: ->
-    console.log @
-    @render 'users.update'
+  actions: 
+    update: ->
+      model = @get 'model'
+      console.log model
 
 `export default UsersUpdateController`
