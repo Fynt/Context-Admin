@@ -1,5 +1,5 @@
 Router = Ember.Router.extend
-  location: EmberENV.locationType
+  location: 'history'
   rootURL: '/admin/'
 
 Router.map ->
@@ -8,7 +8,7 @@ Router.map ->
   @route 'item-update', path: '/:extension_slug/:blueprint_slug/:id'
 
   @resource 'users', ->
-    @route 'update', path: ':id'
+    @route 'update', path: ':user_id'
     @route 'create'
 
   @resource 'groups', ->
