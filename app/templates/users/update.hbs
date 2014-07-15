@@ -1,12 +1,7 @@
-<p>Edit: {{email}}</p>
-
-{{log this.model}}
-
-{{#em-form model=this.model action="update" submit_button=false}}
-  
-  {{em-input propery=email label="Email"}}
-  {{em-input propery=password label="Password"}}
-  {{em-input propery=password2 label="Verify Password"}}
+{{#em-form model=this action="update" submit_button=false}}
+  {{em-input property="email" type="email" label="Email"}}
+  {{em-input property="password" type="password" label="Password"}}
+  {{em-input property="password2" type="password" label="Verify Password"}}
 
   <button type="submit" class="btn btn-primary">Update</button>
 {{/em-form}}

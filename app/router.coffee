@@ -12,7 +12,7 @@ Router.map ->
     @route 'create'
 
   @resource 'groups', ->
-    @route 'update', path: ':id'
+    @route 'update', path: ':group_id'
     @route 'create'
 
   return
