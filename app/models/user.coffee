@@ -2,9 +2,15 @@ User = DS.Model.extend
   group: DS.belongsTo 'group'
   email: DS.attr 'string'
   password: DS.attr 'string'
+  verify_pass: DS.attr 'string'
   last_login: DS.attr 'date'
   created_at: DS.attr 'date'
   updated_at: DS.attr 'date'
+
+  validations:
+    email:
+      presence: true
+      length: minimum: 4
 
 User.reopenClass
   FIXTURES: [

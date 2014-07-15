@@ -3,4 +3,9 @@ Group = DS.Model.extend
   created_at: DS.attr 'date'
   updated_at: DS.attr 'date'
 
+  validations:
+    label:
+      presence: true
+      length: minimum: 1
+
 `export default Group`
