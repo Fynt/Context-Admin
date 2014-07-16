@@ -2,6 +2,8 @@ UsersUpdateController = Ember.ObjectController.extend
   actions:
     update: ->
       model = @get 'model'
-      model.save()
+      user = model.user
+
+      user.save()
 
 `export default UsersUpdateController`

@@ -1,5 +1,5 @@
 User = DS.Model.extend
-  group: DS.belongsTo 'group'
+  group: DS.belongsTo 'group', async: true
   email: DS.attr 'string'
   password: DS.attr 'string'
   verify_pass: DS.attr 'string'

@@ -1,4 +1,6 @@
-{{#em-form model=this action="update" submit_button=false}}
+{{#em-form model=user action="update" submit_button=false}}
+  {{em-select property="group" label="Group" content=groups optionValuePath="content.id" optionLabelPath="content.label"}}
+
   {{em-input property="email" type="email" label="Email"}}
   {{em-input property="password" type="password" label="Password"}}
   {{em-input property="verify_pass" type="password" label="Verify Password"}}

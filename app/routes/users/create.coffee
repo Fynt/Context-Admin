@@ -1,5 +1,8 @@
 UsersCreateRoute = Ember.Route.extend
+
   model: ->
-    @store.createRecord 'user'
+    Ember.RSVP.hash
+      groups: @store.find 'group'
+      user: @store.createRecord 'user'
 
 `export default UsersCreateRoute`

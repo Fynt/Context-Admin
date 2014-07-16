@@ -2,9 +2,10 @@ UsersCreateController = Ember.ObjectController.extend
   actions:
     create: ->
       model = @get 'model'
+      user = model.user
 
-      model.save()
-      .then (model) =>
+      user.save()
+      .then (user) =>
         @transitionToRoute 'users'
 
 `export default UsersCreateController`
