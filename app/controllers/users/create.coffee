@@ -4,11 +4,13 @@ UsersCreateController = Ember.ObjectController.extend
       model = @get 'model'
       user = model.user
 
-      console.log user.get 'group_id'
-      #TODO Set the group
+      @store.findById 'group', user.get 'group_id'
+      .then (group) ->
+        user.set 'group', group
 
-      user.save()
-      .then (user) =>
-        @transitionToRoute 'users'
+        user.save()
+        .then (user) =>
+          @transitionToRoute 'users'
+
 
 `export default UsersCreateController`
