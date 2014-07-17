@@ -8,7 +8,7 @@ Router.map ->
   @route 'item-update', path: '/:extension_slug/:blueprint_slug/:id'
 
   @resource 'users', ->
-    @route 'update', path: ':user_id'
+    @route 'update', path: ':id'
     @route 'create'
 
   @resource 'groups', ->
