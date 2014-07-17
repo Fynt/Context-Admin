@@ -3,7 +3,14 @@ relativeTime = Ember.Component.extend
   classNames: ['relative-time']
   date: ''
   relativeTime: (->
-    moment(@get 'date').fromNow()
+    date = @get 'date'
+
+    # Trying to only return a relative time if there's a date.
+    if date?
+      return moment(date).fromNow()
+    else
+      #TODO Is there a better thing to return?
+      return '-'
   ).property('date')
 
 `export default relativeTime`
