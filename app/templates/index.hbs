@@ -9,13 +9,13 @@
     </tr>
   </thead>
   <tbody>
+    {{#each item in controller}}
     <tr>
       <td>
-        {{gravatar-image email="keith@fynt.ca" size=16}}
-        Keith did some junk
-      </td>
-      <td>{{relative-time date="2014-06-14 07:23:58"}}</td>
-      <td></td>
+      {{gravatar-image email=item.author.email size=16}}
+      did {{item.action}}</td>
+      <td>{{relative-time date=item.created_at}}</td>
     </tr>
+    {{/each}}
   </tbody>
 </table>
