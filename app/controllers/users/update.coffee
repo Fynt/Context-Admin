@@ -4,6 +4,9 @@ UsersUpdateController = Ember.ObjectController.extend
       model = @get 'model'
       user = model.user
 
+      console.log user.get 'group_id'
+      #TODO Set the group
+
       user.save()
 
 `export default UsersUpdateController`
