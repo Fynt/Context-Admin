@@ -8,7 +8,7 @@ User = DS.Model.extend
   created_at: DS.attr 'date'
   updated_at: DS.attr 'date'
 
-  email_md5: (->
+  email_hash: (->
     md5 @get("email")
   ).property("email")
 
