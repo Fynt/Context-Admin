@@ -5,12 +5,14 @@ UsersCreateController = Ember.ObjectController.extend
       user = model.user
 
       @store.findById 'group', user.get 'group_id'
-      .then (group) ->
+      .then (group) =>
         user.set 'group', group
 
         user.save()
         .then (user) =>
-          @transitionToRoute 'users'
+          # Oh, ember. We need to just send the id, otherwise the model hook on
+          # the controller won't get called.
+          @transitionToRoute 'users.update', user.get 'id'
 
 
 `export default UsersCreateController`
