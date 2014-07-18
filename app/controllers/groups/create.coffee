@@ -4,7 +4,7 @@ GroupsCreateController = Ember.ObjectController.extend
       model = @get 'model'
 
       model.save()
-      .then (model) =>
-        @transitionToRoute 'groups'
+      .then (group) =>
+        @transitionToRoute 'groups.update', group
 
 `export default GroupsCreateController`

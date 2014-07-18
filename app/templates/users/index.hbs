@@ -17,10 +17,10 @@
   {{#each model}}
   <tr>
     <td>
-      {{#link-to 'users.update' this}}{{id}}{{/link-to}}
+      {{#link-to 'users.update' id}}{{id}}{{/link-to}}
     </td>
     <td>
-      {{#link-to 'users.update' this}}{{email}}{{/link-to}}
+      {{#link-to 'users.update' id}}{{email}}{{/link-to}}
     </td>
     <td>{{group.label}}</td>
     <td>{{relative-time date=last_login}}</td>

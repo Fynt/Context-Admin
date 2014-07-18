@@ -4,6 +4,9 @@ UsersUpdateController = Ember.ObjectController.extend
       model = @get 'model'
       user = model.user
 
-      user.save()
+      @store.findById 'group', user.get 'group_id'
+      .then (group) ->
+        user.set 'group', group
+        user.save()
 
 `export default UsersUpdateController`
