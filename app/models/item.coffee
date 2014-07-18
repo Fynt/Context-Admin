@@ -1,5 +1,7 @@
 Item = DS.Model.extend
   created_at: DS.attr 'date'
-  blueprint: DS.belongsTo 'blueprint'
+  extension: DS.belongsTo 'extension'
+  blueprint_name: DS.attr 'string'
+  blueprint_slug: DS.attr 'string'
 
 `export default Item`

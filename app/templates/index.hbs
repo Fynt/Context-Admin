@@ -8,12 +8,16 @@
     </tr>
   </thead>
   <tbody>
-    {{#each item in controller}}
+    {{#each history in controller}}
     <tr>
       <td>
-      {{gravatar-image email=item.author.email size=16}}
-      {{item.author.name}} did {{item.action}}</td>
-      <td>{{relative-time date=item.created_at}}</td>
+      {{gravatar-image email=history.author.email size=16}}
+      {{history.author.name}} {{history-action action=history.action}} a
+      {{#link-to 'item-update' history.item}}
+        {{history.item.blueprint_name}}
+      {{/link-to}}
+      </td>
+      <td>{{relative-time date=history.created_at}}</td>
     </tr>
     {{/each}}
   </tbody>
