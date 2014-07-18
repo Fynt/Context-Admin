@@ -9,11 +9,8 @@ User = DS.Model.extend
   updated_at: DS.attr 'date'
 
   email_md5: (->
-    #WTF? Always returning 'undefined'
-    console.log @get('email')
-    
-    md5 @get('email')
-  ).property('email')
+    md5 @get("email")
+  ).property("email")
 
   validations:
     email:

@@ -1,7 +1,7 @@
 History = DS.Model.extend
   author: DS.belongsTo 'user'
   action: DS.attr 'string'
-  item: DS.belongsTo 'item'
+  item: DS.belongsTo 'item', async: true
   created_at: DS.attr 'date'
 
 History.reopenClass
