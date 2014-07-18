@@ -11,7 +11,9 @@
     {{#each history in controller}}
     <tr>
       <td>
-      {{gravatar-image user=history.author size=16}}
+      {{#with history.author.email_md5}}
+        {{gravatar-image hash=this size=16}}
+      {{/with}}
       {{history.author.name}} {{history-action action=history.action}} a
       {{#link-to 'item-update' history.item}}
         {{history.item.blueprint_name}}
