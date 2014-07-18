@@ -1,0 +1,9 @@
+{{#em-form model=user action="update" submit_button=false}}
+  {{em-select property="group_id" label="Group" content=groups optionValuePath="content.id" optionLabelPath="content.label"}}
+
+  {{em-input property="email" type="email" label="Email"}}
+  {{em-input property="password" type="password" label="Password"}}
+  {{em-input property="verify_pass" type="password" label="Verify Password"}}
+
+  <button type="submit" class="btn btn-primary">Update</button>
+{{/em-form}}
