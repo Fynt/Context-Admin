@@ -8,6 +8,7 @@
   <tr>
       <th>ID</th>
       <th>Email</th>
+      <th>Name</th>
       <th>Group</th>
       <th>Last Login</th>
       <th>Created At</th>
@@ -21,6 +22,9 @@
     </td>
     <td>
       {{#link-to 'users.update' id}}{{email}}{{/link-to}}
+    </td>
+    <td>
+      {{#link-to 'users.update' id}}{{name}}{{/link-to}}
     </td>
     <td>{{group.label}}</td>
     <td>{{relative-time date=last_login}}</td>
