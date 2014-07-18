@@ -12,7 +12,7 @@
     <tr>
       <td>
       {{gravatar-image email=item.author.email size=16}}
-      did {{item.action}}</td>
+      {{item.author.name}} did {{item.action}}</td>
       <td>{{relative-time date=item.created_at}}</td>
     </tr>
     {{/each}}

@@ -5,8 +5,8 @@ Blueprint = DS.Model.extend
 
 Blueprint.reopenClass
   FIXTURES: [
-    { id: 1, name: 'Post', slug: 'posts' }
-    { id: 2, name: 'Comment', slug: 'comments' }
+    { id: 1, name: 'Post', slug: 'posts', extension: 'blog' }
+    { id: 2, name: 'Comment', slug: 'comments', extension: 'blog' }
   ]
 
 `export default Blueprint`
