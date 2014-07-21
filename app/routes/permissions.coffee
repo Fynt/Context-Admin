@@ -1,5 +1,7 @@
 PermissionsRoute = Ember.Route.extend
+
   model: ->
-    @store.find 'permission'
+    Ember.RSVP.hash
+      groups: @store.find 'group'
 
 `export default PermissionsRoute`

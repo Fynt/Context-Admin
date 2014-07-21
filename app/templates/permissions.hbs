@@ -1,0 +1,17 @@
+<table class="table table-hover">
+  <tr>
+    <td></td>
+    {{#each type in action_types}}
+    <th>{{type}}</th>
+    {{/each}}
+  </tr>
+
+  {{#each group in model.groups}}
+  <tr>
+    <th>{{group.label}}</th>
+    {{#each type in action_types}}
+    <td><input type="checkbox" {{action "test"}}></td>
+    {{/each}}
+  </tr>
+  {{/each}}
+</table>
