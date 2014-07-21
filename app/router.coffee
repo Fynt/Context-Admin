@@ -15,6 +15,8 @@ Router.map ->
     @route 'update', path: ':group_id'
     @route 'create'
 
+  @resource 'permissions'
+
   return
 
 `export default Router`
