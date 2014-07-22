@@ -1,16 +1,16 @@
 <table class="table table-hover">
   <tr>
     <td></td>
-    {{#each type in action_types}}
-    <th>{{type}}</th>
+    {{#each key in action_types.keys()}}
+    <th>{{action_types[key]}}</th>
     {{/each}}
   </tr>
 
   {{#each group in model.groups}}
   <tr>
     <th>{{group.label}}</th>
-    {{#each type in action_types}}
-    <td><input type="checkbox" {{action "test"}}></td>
+    {{#each key in action_types.keys()}}
+    <td><input type="checkbox" {{action "update" action_types[key]}}></td>
     {{/each}}
   </tr>
   {{/each}}
