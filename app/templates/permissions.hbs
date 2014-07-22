@@ -1,8 +1,8 @@
 <table class="table table-hover">
   <tr>
-    <td></td>
+    <td>Group</td>
     {{#each action_type in action_types}}
-      <th>{{capitalize-word word=action_type}}</th>
+      <td class="text-center">Can <strong>{{capitalize-word action_type}}</strong>?</td>
     {{/each}}
   </tr>
 
@@ -10,7 +10,9 @@
   <tr>
     <th>{{group.label}}</th>
     {{#each action_type in action_types}}
-    <td><input type="checkbox" {{action "update" group}}></td>
+    <td class="text-center">
+      <input type="checkbox" {{group.wat "LOL"}} {{action "toggle" group}}>
+    </td>
     {{/each}}
   </tr>
   {{/each}}

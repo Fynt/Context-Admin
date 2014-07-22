@@ -7,7 +7,7 @@ PermissionsController = Ember.Controller.extend
   ]
 
   actions:
-    update: (group) ->
+    toggle: (group) ->
       console.log group
 
 `export default PermissionsController`
