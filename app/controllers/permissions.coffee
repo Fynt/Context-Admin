@@ -1,9 +1,10 @@
 PermissionsController = Ember.Controller.extend
-  action_types:
-    view: 'View'
-    save: 'Save'
-    publish: 'Publish'
-    destroy: 'Destroy'
+  action_types: [
+    'view'
+    'save'
+    'publish'
+    'destroy'
+  ]
 
   actions:
     update: (group) ->
