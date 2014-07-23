@@ -7,7 +7,10 @@ PermissionsController = Ember.Controller.extend
   ]
 
   actions:
-    toggle: (group) ->
-      console.log group
+    toggle_extension: (extension, action='view') ->
+      console.log extension, action
+
+    toggle_blueprint: (blueprint, action='view') ->
+      console.log blueprint, action
 
 `export default PermissionsController`
