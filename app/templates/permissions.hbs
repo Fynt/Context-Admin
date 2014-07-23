@@ -1,19 +1,13 @@
-<table class="table table-hover">
-  <tr>
-    <td>Group</td>
-    {{#each action_type in action_types}}
-      <td class="text-center">Can <strong>{{capitalize-word action_type}}</strong>?</td>
-    {{/each}}
-  </tr>
+{{#each extension in model.extensions}}
+<div>
+  <input type="checkbox" {{action "toggle_extension" extension}}>
+  {{extension.name}}
 
-  {{#each group in model.groups}}
-  <tr>
-    <th>{{group.label}}</th>
-    {{#each action_type in action_types}}
-    <td class="text-center">
-      <input type="checkbox" {{group.wat "LOL"}} {{action "toggle" group}}>
-    </td>
-    {{/each}}
-  </tr>
+  {{#each blueprint in extension.blueprints}}
+  <div>
+    <input type="checkbox" {{action "toggle_blueprint" blueprint}}>
+    {{blueprint.name}}
+  </div>
   {{/each}}
-</table>
+</div>
+{{/each}}

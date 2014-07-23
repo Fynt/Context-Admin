@@ -1,6 +1,6 @@
 Extension = DS.Model.extend
   name: DS.attr 'string'
-  blueprints: DS.hasMany 'blueprint', { async: true }
+  blueprints: DS.hasMany 'blueprint'
 
 Extension.reopenClass
   FIXTURES: [
