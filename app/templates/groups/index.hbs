@@ -22,7 +22,12 @@
     </td>
     <td>{{relative-time date=created_at}}</td>
     <td>{{relative-time date=updated_at}}</td>
-    <td><button {{action "destroy" this}} class="btn">Delete</button></td>
+    <td>
+      {{#link-to 'permissions' this.id class="btn btn-primary"}}
+        Permissions
+      {{/link-to}}
+      <button {{action "destroy" this}} class="btn">Delete</button>
+    </td>
   </tr>
   {{/each}}
 </table>

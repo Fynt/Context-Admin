@@ -15,7 +15,7 @@ Router.map ->
     @route 'update', path: ':group_id'
     @route 'create'
 
-  @resource 'permissions'
+  @resource 'permissions', path: '/permissions/:group_id'
 
   return
 
