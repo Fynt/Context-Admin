@@ -1,12 +1,19 @@
 {{#each extension in model.extensions}}
-<div>
+<div class="extension">
   <input type="checkbox" {{action "toggle_extension" extension}}>
   {{extension.name}}
 
   {{#each blueprint in extension.blueprints}}
-  <div>
+  <div class="blueprint">
     <input type="checkbox" {{action "toggle_blueprint" blueprint}}>
     {{blueprint.name}}
+
+    <div class="pull-right">
+    {{#each action_type in action_types}}
+      <input type="checkbox" {{action "toggle_blueprint" blueprint action_type}}>
+      {{action_type}}
+    {{/each}}
+    </div>
   </div>
   {{/each}}
 </div>
