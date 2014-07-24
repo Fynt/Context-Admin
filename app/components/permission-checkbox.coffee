@@ -6,15 +6,29 @@ permissionCheckbox = Ember.Component.extend
   blueprint: null
   action_type: 'view'
 
-  isAllowed: (->
-    true
+  permission: (->
+    permission = @get('group').store.createRecord 'permission'
+
+    permission.set 'is_allowed', false
+    permission.set 'group', @get 'group'
+
+    permission
   ).property 'group', 'extension', 'blueprint', 'action_type'
+
+  isAllowed: (->
+    permission = @get 'permission'
+    permission.get 'is_allowed'
+  ).property 'permission'
 
   actions:
     allow: ->
-      alert "allowed"
+      permission = @get 'permission'
+      permission.set 'is_allowed', true
+      permission.save()
 
     disallow: ->
-      alert "not allowed"
+      permission = @get 'permission'
+      permission.set 'is_allowed', false
+      permission.save()
 
 `export default permissionCheckbox`
