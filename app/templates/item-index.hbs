@@ -1,6 +1,6 @@
 <h1>{{ extension.name }}: {{ blueprint.name }}</h1>
 
-{{#link-to 'item-create' extension.slug blueprint.slug class="btn btn-primary"}}
+{{#link-to 'item-create' extension.id blueprint.slug class="btn btn-primary"}}
   Create a {{ extension.name }} {{ blueprint.name }}
 {{/link-to}}
 
@@ -10,13 +10,15 @@
       <th>Created At</th>
       <td></td>
   </tr>
-  {{#each items}}
+  {{#each item in items}}
   <tr>
     <td>
-      {{#link-to 'item-update' this}}{{id}}{{/link-to}}
+      {{#link-to 'item-update' extension.id blueprint.slug item.id}}
+        {{item.id}}
+      {{/link-to}}
     </td>
-    <td>{{relative-time date=created_at}}</td>
-    <td><button {{action "destroy" this}} class="btn">Delete</button></td>
+    <td>{{relative-time date=item.created_at}}</td>
+    <td><button {{action "destroy" item}} class="btn">Delete</button></td>
   </tr>
   {{/each}}
 </table>

@@ -1,0 +1,21 @@
+<h1>{{model.group.label}} Permissions</h1>
+
+{{#each extension in model.extensions}}
+<div class="extension">
+  {{permission-checkbox group=model.group permissions=model.group.permissions extension=extension action_type='view'}}
+  {{extension.name}}
+
+  {{#each blueprint in extension.blueprints}}
+  <div class="blueprint">
+    {{permission-checkbox group=model.group permissions=model.group.permissions blueprint=blueprint action_type='view'}}
+    {{blueprint.name}}
+
+    <div class="pull-right">
+    {{#each action_type in action_types}}
+      {{permission-checkbox group=model.group permissions=model.group.permissions blueprint=blueprint action_type=action_type}}
+    {{/each}}
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{/each}}

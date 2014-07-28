@@ -1,0 +1,9 @@
+{{#if isAllowed}}
+  <input type="checkbox" checked {{action "disallow"}}>
+{{else}}
+  <input type="checkbox" {{action "allow"}}>
+{{/if}}
+
+{{#if isNotViewAction}}
+  {{action_label}}
+{{/if}}
