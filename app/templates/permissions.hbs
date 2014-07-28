@@ -12,7 +12,7 @@
 
     <div class="pull-right">
     {{#each action_type in action_types}}
-      {{permission-checkbox group=model.group blueprint=blueprint action_type=action_type}}
+      {{permission-checkbox group=model.group permissions=model.group.permissions blueprint=blueprint action_type=action_type}}
     {{/each}}
     </div>
   </div>
