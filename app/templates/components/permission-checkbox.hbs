@@ -3,4 +3,7 @@
 {{else}}
   <input type="checkbox" {{action "allow"}}>
 {{/if}}
-{{action_label}}
+
+{{#if isNotViewAction}}
+  {{action_label}}
+{{/if}}

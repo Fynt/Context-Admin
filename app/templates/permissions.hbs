@@ -2,12 +2,12 @@
 
 {{#each extension in model.extensions}}
 <div class="extension">
-  <input type="checkbox" {{action "toggle_extension" extension}}>
+  {{permission-checkbox group=model.group permissions=model.group.permissions extension=extension action_type='view'}}
   {{extension.name}}
 
   {{#each blueprint in extension.blueprints}}
   <div class="blueprint">
-    <input type="checkbox" {{action "toggle_blueprint" blueprint}}>
+    {{permission-checkbox group=model.group permissions=model.group.permissions blueprint=blueprint action_type='view'}}
     {{blueprint.name}}
 
     <div class="pull-right">

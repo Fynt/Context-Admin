@@ -78,6 +78,10 @@ permissionCheckbox = Ember.Component.extend
     permission.get 'is_allowed'
   ).property 'permission', 'permission.is_allowed'
 
+  isNotViewAction: (->
+    @get('action_type') != 'view'
+  ).property 'action_type'
+
   actions:
     allow: ->
       permission = @get 'permission'
