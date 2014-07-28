@@ -13,7 +13,7 @@
       <td>
       {{gravatar-image hash=history.author.email_hash size=16}}
       {{history.author.name}} {{history-action action=history.action}} a
-      {{#link-to 'item-update' history.item}}
+      {{#link-to 'item-update' history.item.extension.id history.item.blueprint_slug history.item.id}}
         {{history.item.blueprint_name}}
       {{/link-to}}
       </td>
