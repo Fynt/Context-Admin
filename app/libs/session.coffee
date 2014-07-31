@@ -25,13 +25,15 @@ Session = Ember.Object.extend
       .fail (error) ->
         reject error
 
+  # Logs the user out by destroying the session.
+  #
+  # @return [Promise]
   logout: ->
     @set 'loggedIn', false
+
     Ember.$.ajax
       type: 'GET'
       url: 'http://localhost:5000/user/logout'
-    .done (data) ->
-      console.log data
 
   # Used to restore the session data after a page refresh, etc.
   #

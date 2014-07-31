@@ -1,6 +1,11 @@
-LoginController = require './login'
+LoginModelController = Ember.Controller.extend
 
-LoginModelController = LoginController.extend
+  reset: ->
+    # Clear some properties.
+    @setProperties
+      error: ''
+      email: ''
+      password: ''
 
   actions:
     close: ->
