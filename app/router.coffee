@@ -3,6 +3,8 @@ Router = Ember.Router.extend
   rootURL: '/admin/'
 
 Router.map ->
+  @route 'login'
+
   @route 'item-index', path: '/:extension_slug/:blueprint_slug'
   @route 'item-create', path: '/:extension_slug/:blueprint_slug/create'
   @route 'item-update', path: '/:extension_slug/:blueprint_slug/:id'

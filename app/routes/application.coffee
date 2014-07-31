@@ -1,8 +1,12 @@
 ApplicationRoute = Ember.Route.extend
 
+  beforeModel: ->
+    if not @session.loggedIn
+      @transitionTo 'login'
+
   actions:
     logout: ->
-      @session.set 'loggedIn', false
+      @session.logout()
       @controllerFor('login').reset()
 
     openModal: (modalName) ->
@@ -14,5 +18,8 @@ ApplicationRoute = Ember.Route.extend
       @disconnectOutlet
         outlet: 'modal'
         parentView: 'application'
+
+    error: (err) ->
+      console.log err
 
 `export default ApplicationRoute`

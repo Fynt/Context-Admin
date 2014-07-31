@@ -3,11 +3,16 @@ Session = Ember.Object.extend
   # @property [Boolean]
   loggedIn: false
 
+  # Creates a user session on the server if successful.
+  #
+  # @param email [String]
+  # @param password [String]
+  # @return [Promise]
   login: (email, password) ->
     new Promise (resolve, reject) =>
       Ember.$.ajax
         type: 'POST'
-        url: 'http://localhost:5000/user/login',
+        url: 'http://localhost:5000/user/login'
         data:
           email: email
           password: password
@@ -20,6 +25,17 @@ Session = Ember.Object.extend
       .fail (error) ->
         reject error
 
+  logout: ->
+    @set 'loggedIn', false
+    Ember.$.ajax
+      type: 'GET'
+      url: 'http://localhost:5000/user/logout'
+    .done (data) ->
+      console.log data
+
+  # Used to restore the session data after a page refresh, etc.
+  #
+  # @return [Promise]
   restore: ->
     new Promise (resolve, reject) =>
       Ember.$.ajax
