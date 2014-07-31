@@ -2,12 +2,16 @@ ApplicationRoute = Ember.Route.extend
 
   beforeModel: ->
     if not @session.loggedIn
-      @transitionTo 'login'
+      #TODO THIS CAUSES A CORS ERROR AND I HAVE NO IDEA WHY.
+      @transitionToRoute 'login'
 
   actions:
     logout: ->
       @session.logout()
+
+      # Reset both of the login controllers.
       @controllerFor('login').reset()
+      @controllerFor('login-modal').reset()
 
     openModal: (modalName) ->
       @render modalName,
@@ -18,8 +22,5 @@ ApplicationRoute = Ember.Route.extend
       @disconnectOutlet
         outlet: 'modal'
         parentView: 'application'
-
-    error: (err) ->
-      console.log err
 
 `export default ApplicationRoute`

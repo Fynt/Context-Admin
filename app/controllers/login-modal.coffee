@@ -1,13 +1,10 @@
-LoginController = Ember.Controller.extend
+LoginController = require './login'
 
-  reset: ->
-    # Clear some properties.
-    @setProperties
-      error: ''
-      email: ''
-      password: ''
+LoginModelController = LoginController.extend
 
   actions:
+    close: ->
+      @send 'closeModal'
 
     login: ->
       # Clear the previous error message if there are any.
@@ -15,10 +12,10 @@ LoginController = Ember.Controller.extend
 
       @session.login @get('email'), @get('password')
       .then (data) =>
-        @transitionTo 'application'
+        @send 'closeModal'
       , (error) =>
         switch error.status
           when 400 then @set 'error', "Email and password are required."
           when 401 then @set 'error', "Authentication failed."
 
-`export default LoginController`
+`export default LoginModelController`
