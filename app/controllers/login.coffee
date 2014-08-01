@@ -15,7 +15,14 @@ LoginController = Ember.Controller.extend
 
       @session.login @get('email'), @get('password')
       .then (data) =>
-        @transitionTo 'application'
+        # Attempt failed transition if it exists.
+        if @session.failedTransition
+          # Retry the failed transition and then reset it.
+          @session.failedTransition.retry()
+          @session.failedTransition = null
+        else
+          # Default back to homepage
+          @transitionTo 'application'
       , (error) =>
         switch error.status
           when 400 then @set 'error', "Email and password are required."

@@ -25,8 +25,8 @@ ApplicationRoute = Ember.Route.extend
 
     error: (reasons, transition) ->
       if reasons.status == 401
-        @session.set 'transition', transition
-
+        @session.set 'failedTransition', transition
+        
         try
           # Trigger the login modal.
           @render 'login-modal',

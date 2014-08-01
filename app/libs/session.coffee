@@ -3,6 +3,9 @@ Session = Ember.Object.extend
   # @property [Boolean]
   loggedIn: false
 
+  # @property [Object]
+  failedTransition: null
+
   # Creates a user session on the server if successful.
   #
   # @param email [String]

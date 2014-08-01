@@ -17,6 +17,13 @@ LoginModelController = Ember.Controller.extend
 
       @session.login @get('email'), @get('password')
       .then (data) =>
+        # Attempt failed transition if it exists.
+        if @session.failedTransition
+          # Retry the failed transition and then reset it.
+          @session.failedTransition.retry()
+          @session.failedTransition = null
+
+        # We won't be needing this anymore.
         @send 'closeModal'
       , (error) =>
         switch error.status
