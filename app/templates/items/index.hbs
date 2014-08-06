@@ -1,6 +1,6 @@
 <h1>{{ extension.name }}: {{ blueprint.name }}</h1>
 
-{{#link-to 'item-create' extension.id blueprint.slug class="btn btn-primary"}}
+{{#link-to 'items.create' extension.id blueprint.slug class="btn btn-primary"}}
   Create a {{ extension.name }} {{ blueprint.name }}
 {{/link-to}}
 
@@ -13,7 +13,7 @@
   {{#each item in items}}
   <tr>
     <td>
-      {{#link-to 'item-update' extension.id blueprint.slug item.id}}
+      {{#link-to 'items.update' extension.id blueprint.slug item.id}}
         {{item.id}}
       {{/link-to}}
     </td>

@@ -5,7 +5,7 @@ Router = Ember.Router.extend
 Router.map ->
   @route 'login'
 
-  @route 'items', path: '/:extension_slug/:blueprint_slug', ->
+  @resource 'items', path: '/:extension_slug/:blueprint_slug', ->
     @route 'update', path: ':id'
     @route 'create', path: 'create'
 
