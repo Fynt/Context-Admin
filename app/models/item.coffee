@@ -1,12 +1,19 @@
 Item = DS.Model.extend
+  blueprint: DS.belongsTo 'blueprint'
+  author: DS.belongsTo 'user'
   created_at: DS.attr 'date'
-  extension: DS.belongsTo 'extension'
-  blueprint_name: DS.attr 'string'
-  blueprint_slug: DS.attr 'string'
+  updated_at: DS.attr 'date'
+  published: DS.attr 'boolean'
+
+  validations:
+    extension:
+      presence: true
+    blueprint_slug:
+      presence: true
 
 Item.reopenClass
   FIXTURES: [
-    { id: 1, extension: 1, blueprint_name: 'blog', blueprint_slug: 'blog' }
+    { id: 1, blueprint: 1 }
   ]
 
 `export default Item`
