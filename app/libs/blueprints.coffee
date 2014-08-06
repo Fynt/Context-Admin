@@ -63,6 +63,12 @@ Blueprints = Ember.Object.extend
               type: options.type
               label: labelize field
 
+          if options.belongs_to?
+            form.push
+              field: field
+              type: 'belongs_to'
+              label: labelize field
+
         resolve form
       , (error) ->
         reject error
