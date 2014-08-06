@@ -1,17 +1,11 @@
 ItemsUpdateRoute = Ember.Route.extend
 
   model: (params) ->
-    extension = @store.find 'extension', slug: params.extension_slug
-    .then (extensions) ->
-      extensions.get 'firstObject'
+    items_model = @modelFor 'items'
+    extension = items_model.extension
+    blueprint = items_model.blueprint
 
-    blueprint = @store.find 'blueprint',
-      extension: params.extension_slug
-      slug: params.blueprint_slug
-    .then (blueprints) ->
-      blueprints.get 'firstObject'
-
-    form = @blueprints.get_form params.extension_slug, params.blueprint_slug
+    form = @blueprints.get_form extension.id, blueprint.get 'slug'
     .then (form) ->
       form
 
