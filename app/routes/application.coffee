@@ -6,8 +6,12 @@ ApplicationRoute = Ember.Route.extend
 
   actions:
     logout: ->
-      @session.logout()
+      # Reset both of the login controllers.
       @controllerFor('login').reset()
+      @controllerFor('login-modal').reset()
+
+      @session.logout().then =>
+        @transitionTo 'login'
 
     openModal: (modalName) ->
       @render modalName,
@@ -19,7 +23,18 @@ ApplicationRoute = Ember.Route.extend
         outlet: 'modal'
         parentView: 'application'
 
-    error: (err) ->
-      console.log err
+    error: (reasons, transition) ->
+      if reasons.status == 401
+        @session.set 'failedTransition', transition
+        
+        try
+          # Trigger the login modal.
+          @render 'login-modal',
+            into: 'application'
+            outlet: 'modal'
+        catch e
+          # The app might not be initialized yet, so try and transition to the
+          # login screen.
+          @transitionTo 'login'
 
 `export default ApplicationRoute`

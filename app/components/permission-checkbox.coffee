@@ -5,20 +5,23 @@ permissionCheckbox = Ember.Component.extend
   permissions: null
   extension: null
   blueprint: null
+  model: null
   action_type: 'view'
 
   type: ->
     if @get 'extension'
       return 'extension'
-    else
+    else if @get 'blueprint'
       return 'blueprint'
+    else
+      return 'model'
 
   resource: ->
     if @type() == 'extension'
       extension = @get 'extension'
 
       return extension.get 'id'
-    else
+    else if @type() == 'blueprint'
       blueprint = @get 'blueprint'
       extension = blueprint.get 'extension'
 
@@ -26,6 +29,8 @@ permissionCheckbox = Ember.Component.extend
       blueprint_name = blueprint.get 'name'
 
       return "#{extension_id}:#{blueprint_name}"
+    else
+      return @get 'model'
 
   create_permission: ->
     group = @get 'group'

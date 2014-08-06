@@ -8,15 +8,16 @@
     {{#if session.loggedIn}}
       <span>{{gravatar-image email=session.email size=34}}</span>
       <button class="btn navbar-btn" {{action 'logout'}}>Logout</button>
-    {{else}}
-      <button class="btn navbar-btn" {{action 'openModal' 'login'}}>Login</button>
     {{/if}}
     </div>
   </div>
 </header>
 
 <nav class="sidebar">
-  {{! context-nav route='extension' links=this class="nav-pills nav-stacked"}}
+  <div>{{#link-to 'users'}}Users{{/link-to}}</div>
+  <div>{{#link-to 'groups'}}Groups{{/link-to}}</div>
+
+  <div>{{#link-to 'item-index' 'blog' 'posts'}}Blog Posts{{/link-to}}</div>
 </nav>
 
 <section class="pane">
