@@ -1,4 +1,4 @@
-ItemIndexRoute = Ember.Route.extend
+ItemsIndexRoute = Ember.Route.extend
 
   model: (params) ->
     extension = @store.find 'extension', slug: params.extension_slug
@@ -23,4 +23,4 @@ ItemIndexRoute = Ember.Route.extend
       blueprint: blueprint
       items: items
 
-`export default ItemIndexRoute`
+`export default ItemsIndexRoute`

@@ -1,4 +1,4 @@
-ItemUpdateRoute = Ember.Route.extend
+ItemsCreateRoute = Ember.Route.extend
 
   model: (params) ->
     extension = @store.find 'extension', slug: params.extension_slug
@@ -18,7 +18,7 @@ ItemUpdateRoute = Ember.Route.extend
     item = @blueprints.get_item @store.modelFor('item'), params.extension_slug,
       params.blueprint_slug
     .then (item) =>
-      @store.findById item, params.id
+      @store.createRecord item
 
     Ember.RSVP.hash
       extension: extension
@@ -26,4 +26,4 @@ ItemUpdateRoute = Ember.Route.extend
       item: item
       form: form
 
-`export default ItemUpdateRoute`
+`export default ItemsCreateRoute`

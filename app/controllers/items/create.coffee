@@ -1,4 +1,4 @@
-ItemCreateController = Ember.ObjectController.extend
+ItemsCreateController = Ember.ObjectController.extend
 
   actions:
     create: ->
@@ -17,4 +17,4 @@ ItemCreateController = Ember.ObjectController.extend
           extension_slug: extension.get 'slug'
           blueprint_slug: blueprint.get 'slug'
 
-`export default ItemCreateController`
+`export default ItemsCreateController`

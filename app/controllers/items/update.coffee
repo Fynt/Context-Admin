@@ -1,4 +1,4 @@
-ItemUpdateController = Ember.ObjectController.extend
+ItemsUpdateController = Ember.ObjectController.extend
 
   actions:
     update: ->
@@ -10,4 +10,4 @@ ItemUpdateController = Ember.ObjectController.extend
       item.set 'blueprint', blueprint
       item.save()
 
-`export default ItemUpdateController`
+`export default ItemsUpdateController`
