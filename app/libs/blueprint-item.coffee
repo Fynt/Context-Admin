@@ -1,4 +1,4 @@
-Item = DS.Model.extend
+BlueprintItem = DS.Model.extend
   blueprint: DS.belongsTo 'blueprint'
   author: DS.belongsTo 'user'
   created_at: DS.attr 'date'
@@ -11,9 +11,4 @@ Item = DS.Model.extend
     blueprint_slug:
       presence: true
 
-Item.reopenClass
-  FIXTURES: [
-    { id: 1, blueprint: 1 }
-  ]
-
-`export default Item`
+`export default BlueprintItem`

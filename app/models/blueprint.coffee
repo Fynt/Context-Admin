@@ -1,7 +1,7 @@
 Blueprint = DS.Model.extend
   name: DS.attr 'string'
   slug: DS.attr 'string'
-  extension: DS.belongsTo 'extension'
+  extension: DS.belongsTo 'extension', async: true
   definition: DS.attr 'object'
 
 Blueprint.reopenClass
