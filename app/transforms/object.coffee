@@ -2,9 +2,9 @@
 
 ObjectTransform = DS.Transform.extend
   deserialize: (serialized) ->
-    (if Em.none(serialized) then {} else serialized)
+    (if Em.isNone(serialized) then {} else serialized)
 
   serialize: (deserialized) ->
-    (if Em.none(deserialized) then {} else deserialized)
+    (if Em.isNone(deserialized) then {} else deserialized)
 
 `export default ObjectTransform`
