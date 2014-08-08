@@ -1,25 +1,17 @@
 ItemsRoute = Ember.Route.extend
 
   model: (params) ->
-    extension = @store.find 'extension', slug: params.extension_slug
-    .then (extensions) ->
-      extensions.get 'firstObject'
-
     blueprint = @store.find 'blueprint',
-      extension: params.extension_slug
+      extension: params.extension
       slug: params.blueprint_slug
     .then (blueprints) ->
       blueprints.get 'firstObject'
 
-    items = @blueprints.get_item @store.modelFor('item'), params.extension_slug,
-      params.blueprint_slug
-    .then (type) =>
-      @store.find type,
-        extension: params.extension_slug
-        blueprint_slug: params.blueprint_slug
+    type_name = "#{params.extension}#{params.blueprint_slug}"
+    items = @store.find type_name
 
     Ember.RSVP.hash
-      extension: extension
+      extension: @store.findById 'extension', params.extension
       blueprint: blueprint
       items: items
 
