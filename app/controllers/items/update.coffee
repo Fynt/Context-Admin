@@ -1,4 +1,4 @@
-ItemsUpdateController = Ember.ObjectController.extend
+ItemsUpdateController = Ember.Controller.extend
 
   actions:
     update: ->

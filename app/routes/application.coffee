@@ -39,5 +39,8 @@ ApplicationRoute = Ember.Route.extend
             # The app might not be initialized yet, so try and transition to the
             # login screen.
             @transitionTo 'login'
+      else
+        alert "You broke it."
+        console.log reasons, transition
 
 `export default ApplicationRoute`

@@ -9,15 +9,13 @@ ItemsCreateRoute = Ember.Route.extend
     .then (form) ->
       form
 
-    item = @blueprints.get_item @store.modelFor('item'), extension.id,
-      blueprint.get 'slug'
-    .then (item) =>
-      @store.createRecord item
+    blueprint_slug = blueprint.get 'slug'
+    type_name = "#{extension.id}/#{blueprint_slug}"
 
     Ember.RSVP.hash
       extension: extension
       blueprint: blueprint
-      item: item
+      item: @store.createRecord type_name
       form: form
 
 `export default ItemsCreateRoute`

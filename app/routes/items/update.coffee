@@ -9,15 +9,13 @@ ItemsUpdateRoute = Ember.Route.extend
     .then (form) ->
       form
 
-    item = @blueprints.get_item @store.modelFor('item'), params.extension_slug,
-      params.blueprint_slug
-    .then (item) =>
-      @store.findById item, params.id
+    blueprint_slug = blueprint.get 'slug'
+    type_name = "#{extension.id}/#{blueprint_slug}"
 
     Ember.RSVP.hash
       extension: extension
       blueprint: blueprint
-      item: item
+      item: @store.findById type_name, params.id
       form: form
 
 `export default ItemsUpdateRoute`

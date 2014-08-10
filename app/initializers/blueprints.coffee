@@ -13,18 +13,19 @@ BlueprintsInitializer =
     # @param blueprint [Blueprint] A blueprint model result.
     # @return [Promise]
     create_model = (blueprint) ->
-      model = BlueprintItem
-      attributes = {}
-
-      for field of blueprint.definition
-        options = definition[field]
-
-        if options.type?
-          #TODO Make this more dynamic.
-          attributes[field] = DS.attr 'string'
-
-      model.reopen attributes
-      model
+      # model = BlueprintItem
+      # attributes = {}
+      #
+      # for field of blueprint.definition
+      #   options = definition[field]
+      #
+      #   if options.type?
+      #     #TODO Make this more dynamic.
+      #     attributes[field] = DS.attr 'string'
+      #
+      # model.reopen attributes
+      # model
+      DS.Model
 
     store = container.lookup 'store:main'
     store.find 'blueprint'
