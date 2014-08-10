@@ -20,7 +20,7 @@ Blueprints = Ember.Object.extend
     labelize = (s) ->
       s[0].toUpperCase() + s[1..-1].toLowerCase()
 
-    for field of definition
+    for field of blueprint.definition
       options = definition[field]
 
       if options.type?
