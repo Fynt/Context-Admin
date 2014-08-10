@@ -7,7 +7,8 @@ ItemsRoute = Ember.Route.extend
     .then (blueprints) ->
       blueprints.get 'firstObject'
 
-    type_name = "#{params.extension}#{params.blueprint_slug}"
+    type_name = "#{params.extension}/#{params.blueprint_slug}"
+    alert type_name
     items = @store.find type_name
 
     Ember.RSVP.hash

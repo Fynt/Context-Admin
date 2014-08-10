@@ -31,7 +31,9 @@ BlueprintsInitializer =
     .then (blueprints) ->
       blueprints.forEach (blueprint) ->
         extension_id = blueprint.get('extension').id
-        model_name = "#{extension_id}#{blueprint.slug}"
+        blueprint_slug = blueprint.get 'slug'
+
+        model_name = "#{extension_id}/#{blueprint_slug}"
         model = create_model blueprint
 
         application.register "model:#{model_name}", model
