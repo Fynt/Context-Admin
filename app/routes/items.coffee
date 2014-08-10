@@ -7,15 +7,14 @@ ItemsRoute = Ember.Route.extend
     .then (blueprints) ->
       blueprints.get 'firstObject'
 
-    type_name = "#{params.extension}/#{params.blueprint_slug}"
-    console.log "UGGHGHGH", @store.find type_name
-    # items = @store.find type_name
-    # .then (items) ->
-    #   items
+    items = @store.find @blueprints.get_type params.extension,
+      params.blueprint_slug
+    .then (items) ->
+      items
 
     Ember.RSVP.hash
       extension: @store.findById 'extension', params.extension
       blueprint: blueprint
-      #items: items
+      items: items
 
 `export default ItemsRoute`
