@@ -1,0 +1,274 @@
+// Core variables and mixins
+@import "vendor/bootstrap/less/variables.less";
+@import "vendor/bootstrap/less/mixins.less";
+
+// Reset and dependencies
+@import "vendor/bootstrap/less/normalize.less";
+@import "vendor/bootstrap/less/print.less";
+// @import "vendor/bootstrap/less/glyphicons.less";
+
+// Core CSS
+@import "vendor/bootstrap/less/scaffolding.less";
+@import "vendor/bootstrap/less/type.less";
+@import "vendor/bootstrap/less/code.less";
+@import "vendor/bootstrap/less/grid.less";
+@import "vendor/bootstrap/less/tables.less";
+@import "vendor/bootstrap/less/forms.less";
+@import "vendor/bootstrap/less/buttons.less";
+
+// Components
+// @import "vendor/bootstrap/less/component-animations.less";
+// @import "vendor/bootstrap/less/dropdowns.less";
+// @import "vendor/bootstrap/less/button-groups.less";
+// @import "vendor/bootstrap/less/input-groups.less";
+@import "vendor/bootstrap/less/navs.less";
+// @import "vendor/bootstrap/less/navbar.less";
+// @import "vendor/bootstrap/less/breadcrumbs.less";
+// @import "vendor/bootstrap/less/pagination.less";
+// @import "vendor/bootstrap/less/pager.less";
+// @import "vendor/bootstrap/less/labels.less";
+// @import "vendor/bootstrap/less/badges.less";
+// @import "vendor/bootstrap/less/jumbotron.less";
+// @import "vendor/bootstrap/less/thumbnails.less";
+// @import "vendor/bootstrap/less/alerts.less";
+// @import "vendor/bootstrap/less/progress-bars.less";
+// @import "vendor/bootstrap/less/media.less";
+// @import "vendor/bootstrap/less/list-group.less";
+// @import "vendor/bootstrap/less/panels.less";
+// @import "vendor/bootstrap/less/responsive-embed.less";
+// @import "vendor/bootstrap/less/wells.less";
+// @import "vendor/bootstrap/less/close.less";
+
+// Components w/ JavaScript
+// @import "vendor/bootstrap/less/modals.less";
+// @import "vendor/bootstrap/less/tooltip.less";
+// @import "vendor/bootstrap/less/popovers.less";
+// @import "vendor/bootstrap/less/carousel.less";
+
+// Utility classes
+@import "vendor/bootstrap/less/utilities.less";
+@import "vendor/bootstrap/less/responsive-utilities.less";
+
+// bootstrap overwrites
+// @nav-link-padding: 5px 15px;
+
+// design
+@default-spacing: @grid-gutter-width / 2; //15px
+
+@z-index-header: 200;
+@z-index-footer: 200;
+
+@secondary-color-dark: #5A546B;
+@secondary-color: #635C74;
+@secondary-color-light: #C6C1D6;
+@secondary-color-lighter: #EDECEF;
+
+// compontents
+@context-header-height: 50px;
+@context-footer-height: 65px;
+@context-drawer-width: 170px;
+
+html, body, .context-application { height: 100%; }
+
+// Panel
+.context-panel {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.context-panel.has-drawer { 
+  padding-left: @context-drawer-width;
+  
+  > .context-body,
+  > .context-header,
+  > .context-footer {
+    width: -webkit-calc(~"100% - " @context-drawer-width);
+    width: -moz-calc(~"100% - " @context-drawer-width);
+    width: calc(~"100% - " @context-drawer-width);
+  }
+}
+.context-panel.has-drawer.drawer-right {
+  padding-left: 0;
+  padding-right: @context-drawer-width;
+}
+
+// Drawer
+.context-drawer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: @context-drawer-width;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.drawer-right > .context-drawer {
+  left: auto;
+  right: 0;
+}
+
+// Body
+.context-body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.context-panel.has-header,
+.context-drawer.has-header {
+  > .context-body {
+    top: @context-header-height;
+  }
+}
+.context-panel.has-footer,
+.context-drawer.has-footer {
+  > .context-body {
+    bottom: @context-footer-height;
+  }
+}
+
+// Header & Footer
+.context-header,
+.context-footer {
+  position: absolute;
+  width: 100%;
+}
+.context-header {
+  top: 0;
+  height: @context-header-height;
+  z-index: @z-index-header;
+}
+.context-footer {
+  bottom: 0;
+  height: @context-footer-height;
+  z-index: @z-index-footer;
+}
+.context-toolbar {
+  padding: @default-spacing;
+}
+
+
+.nav-sidebar {
+  background: @secondary-color;
+  
+  .context-header { 
+    background: @secondary-color;
+    border-bottom: 1px solid @secondary-color-dark; 
+  }
+  
+  .context-footer {
+    background: @secondary-color;
+  }
+  
+  .brand {
+    color: white;
+    font-size: 16px;
+  }
+  
+  .nav {
+    margin-top: @default-spacing;
+    
+    a {
+      color: @secondary-color-light;
+    }
+    
+    a:hover { 
+      background: transparent;
+      color: white;
+    }
+    
+  }
+  
+  .avatar {
+    float: left;
+    width: 48px;
+    position: relative;
+    top: -7px;
+    left: -7px;
+  }
+  
+  
+  
+}
+
+.nav-sidebar-secondary {
+  background: @secondary-color-lighter;
+  
+  .context-header { 
+    background: @secondary-color-lighter;
+    border-bottom: 1px solid @secondary-color-light; 
+  }
+  
+  .context-footer {
+    background: @secondary-color-lighter;
+  }
+  
+  .nav {
+    
+    a {
+      color: lighten(@secondary-color, 10%);
+    }
+    
+    a:hover { 
+      background: transparent;
+      color: @secondary-color-dark;
+    }
+  }
+  
+  .nav-lined li a {
+    border-color: lighten(@secondary-color-light, 10%);
+  }
+}
+
+.nav-lined {
+  li a {
+    border-bottom: 1px solid @gray-lighter;
+  }
+}
+.nav-condensed {
+  > li > a { padding: 5px 15px; }
+}
+
+.form-group-condensed {
+  margin-bottom: 0;
+}
+
+.form-simplified {
+  .form-control {
+    background-color: transparent;
+    border: none;
+    
+    .box-shadow(none);
+    .transition(none);
+    
+    &::-moz-placeholder           { font-style: italic; } 
+    &:-ms-input-placeholder       { font-style: italic; } 
+    &::-webkit-input-placeholder  { font-style: italic; } 
+  }
+  .control-label {
+    color: @gray-light;
+    float: left;
+    font-size: 12px;
+    margin: 9px 0 0;
+    text-transform: uppercase;
+    text-align: left;
+    width: 20%;
+  }
+  .controls {
+    float: left;
+    width: 80%;
+  }
+  .form-group {
+    border-bottom: 1px solid @gray-lighter;
+    .clearfix();
+  }
+}
+
+.avatar:extend(.img-circle) {
+  border: 2px solid white;
+}
+
+// @import 'variables.less';
