@@ -7,8 +7,7 @@ ItemsUpdateRoute = Ember.Route.extend
 
     form = @blueprints.get_form extension.id, blueprint.get 'slug'
 
-    blueprint_slug = blueprint.get 'slug'
-    type_name = "#{extension.id}/#{blueprint_slug}"
+    type_name = @blueprints.get_type extension.id, blueprint.get 'slug'
 
     Ember.RSVP.hash
       extension: extension
