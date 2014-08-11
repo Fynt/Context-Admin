@@ -7,6 +7,15 @@ BlueprintsInitializer =
   after: 'jquery'
 
   initialize: (container, application) ->
+    # We're going to need this for the model_type_name function.
+    blueprints = new Blueprints
+    model_type_name = (blueprint, blueprint_slug) ->
+      extension_id = blueprint.get('extension').id
+      if not blueprint_slug?
+        blueprint_slug = blueprint.get 'slug'
+
+      blueprints.get_type extension_id, blueprint_slug
+
     # Gets a model instance which has additional attributes based on the
     #   blueprint definition.
     #
@@ -16,12 +25,16 @@ BlueprintsInitializer =
       model = BlueprintItem
       attributes = {}
 
-      for field of blueprint.definition
+      definition = blueprint.get 'definition'
+      for field of definition
         options = definition[field]
 
         if options.type?
           #TODO Make this more dynamic.
           attributes[field] = DS.attr 'string'
+        else if options.belongs_to?
+          model_name = model_type_name blueprint, options.belongs_to
+          attributes[field] = DS.belongsTo model_name
 
       model.reopen attributes
       model
@@ -30,16 +43,9 @@ BlueprintsInitializer =
     store.find 'blueprint'
     .then (blueprints) ->
       blueprints.forEach (blueprint) ->
-        extension_id = blueprint.get('extension').id
-        blueprint_slug = blueprint.get 'slug'
-
-        # Generate the model/type name...
-        blueprint_slug = Ember.Inflector.inflector.singularize blueprint_slug
-        model_name = "#{extension_id}/#{blueprint_slug}"
-
         # Create the actual model and register it.
         model = create_model blueprint
-
+        model_name = model_type_name blueprint
         application.register "model:#{model_name}", model
 
     # Register blueprints

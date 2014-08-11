@@ -6,6 +6,7 @@ Blueprints = Ember.Object.extend
   # @param blueprint_slug [String]
   # @return [String]
   get_type: (extension_id, blueprint_slug) ->
+    blueprint_slug = blueprint_slug.toLowerCase()
     blueprint_slug = Ember.Inflector.inflector.singularize blueprint_slug
     "#{extension_id}/#{blueprint_slug}"
 
