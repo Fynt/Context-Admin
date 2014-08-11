@@ -1,5 +1,25 @@
-LoginController = Ember.Controller.extend
-
+LoginController = Ember.Controller.extend Em.I18n.TranslateableProperties,
+  
+  headingTranslation: 'auth.login.heading'
+  errorInvalidTranslation: 'auth.login.errors.invalid'
+  errorFailedTranslation: 'auth.login.errors.failed'
+  
+  panelHeading: ( ->
+    heading = @get 'heading'
+    error = @get 'error'
+    heading += ' — ' + error if (error) 
+    heading
+  ).property 'error', 'heading'
+  
+  panelType: ( ->
+    error = @get 'error' 
+    if error then 'danger' else 'default'
+  ).property 'error'
+  
+  emailHash: ( ->
+    md5 @get("email")
+  ).property 'email'
+  
   reset: ->
     # Clear some properties.
     @setProperties
@@ -25,7 +45,7 @@ LoginController = Ember.Controller.extend
           @transitionTo 'application'
       , (error) =>
         switch error.status
-          when 400 then @set 'error', "Email and password are required."
-          when 401 then @set 'error', "Authentication failed."
+          when 400 then @set 'error', @get 'errorInvalid'
+          when 401 then @set 'error', @get 'errorFailed'
 
 `export default LoginController`

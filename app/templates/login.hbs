@@ -1,23 +1,26 @@
-<form class="form form-simplified" role="form" {{action "login" on="submit"}}>
-  {{#if error}}
-  <div class="alert alert-warning" role="alert">{{error}}</div>
-  {{/if}}
-
-  <div class="form-group">
-    <label for="email" class="control-label">Email address</label>
-    <div class="controls">
-      {{input type="email" class="form-control" id="email" value=email placeholder="Enter email"}}
+{{#context-body}}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        {{#context-panel class="panel-login" heading=panelHeading type=panelType}}
+          <div class="text-center">
+            {{gravatar-image hash=emailHash size=96}}
+          </div>
+          <form class="form form-simplified" role="form" {{action "login" on="submit"}}>   
+            {{input email labelTranslation='auth.login.email.label' placeholderTranslation='auth.login.email.placeholder'}}
+            {{input password labelTranslation='auth.login.password.label' placeholderTranslation='auth.login.password.placeholder'}}
+            <div class="row">
+              <div class="col-xs-8">
+                
+              </div>
+              <div class="col-xs-4">
+                <button type="submit" class="btn btn-block btn-primary">{{t 'auth.login.button'}}</button>
+              </div>
+            </div>
+            
+          </form>
+        {{/context-panel}}
+      </div>
     </div>
   </div>
-  <div class="form-group">
-    <label for="password" class="control-label">Password</label>
-    <div class="controls">
-      {{input type="password" class="form-control" id="password" value=password placeholder="Password"}}
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="controls">
-      <button type="submit" class="btn btn-block btn-primary">Log in</button>
-    </div>
-  </div>
-</form>
+{{/context-body}}

@@ -30,11 +30,11 @@
 // @import "vendor/bootstrap/less/badges.less";
 // @import "vendor/bootstrap/less/jumbotron.less";
 // @import "vendor/bootstrap/less/thumbnails.less";
-// @import "vendor/bootstrap/less/alerts.less";
+@import "vendor/bootstrap/less/alerts.less";
 // @import "vendor/bootstrap/less/progress-bars.less";
 // @import "vendor/bootstrap/less/media.less";
 // @import "vendor/bootstrap/less/list-group.less";
-// @import "vendor/bootstrap/less/panels.less";
+@import "vendor/bootstrap/less/panels.less";
 // @import "vendor/bootstrap/less/responsive-embed.less";
 // @import "vendor/bootstrap/less/wells.less";
 // @import "vendor/bootstrap/less/close.less";
@@ -49,8 +49,44 @@
 @import "vendor/bootstrap/less/utilities.less";
 @import "vendor/bootstrap/less/responsive-utilities.less";
 
-// bootstrap overwrites
-// @nav-link-padding: 5px 15px;
+@black:         #000;
+@gray-darker:   #50555E;
+@gray-dark:     #333;
+@gray:          #9A9CA0;
+@gray-light:    #C8CDD6;
+@gray-lighter:  #F2F4F9;
+@white:         #fff;
+
+
+// Accent colors
+// -------------------------
+@blue-light:            #C3F2F6;
+@blue:                  #5EC4DB;
+@blue-dark:             #135B67;
+@green-light:           #DAF6B7;
+@green:                 #9CDB5E;
+@green-dark:            #709D35;
+@red-light:             #F5BABB;
+@red:                   #E64B4F;
+@red-dark:              #8C3638;
+@yellow-light:          #FDFEAA;
+@yellow:                #F0EB49;
+@yellow-dark:           #C1B834;
+@orange-light:          #FDD2B5;
+@orange:                #ED7841;
+@orange-dark:           #A85220;
+@pink:                  #c3325f;
+@purple:                #7a43b6;
+
+
+// Brand colors
+// -------------------------
+
+@brand-primary:         @blue;
+@brand-success:         @green;
+@brand-warning:         @yellow;
+@brand-danger:          @red;
+@brand-info:            @blue;
 
 // design
 @default-spacing: @grid-gutter-width / 2; //15px
@@ -58,10 +94,26 @@
 @z-index-header: 200;
 @z-index-footer: 200;
 
+@primary-color: #333;
+
 @secondary-color-dark: #5A546B;
 @secondary-color: #635C74;
 @secondary-color-light: #C6C1D6;
 @secondary-color-lighter: #EDECEF;
+
+// bootstrap overwrites
+// @nav-link-padding: 5px 15px;
+
+@panel-border-radius: @border-radius-large;
+
+@panel-default-border: @gray-light;
+@panel-default-heading-bg: @gray-lighter;
+
+@panel-danger-border: @red; 
+@panel-danger-text: #fff; 
+@panel-danger-heading-bg: @red; 
+
+
 
 // compontents
 @context-header-height: 50px;
@@ -70,13 +122,17 @@
 
 html, body, .context-application { height: 100%; }
 
-// Panel
-.context-panel {
+.context-application-primary {
+  #gradient .radial(@gray-light, @gray);
+}
+
+// Window
+.context-window {
   position: relative;
   height: 100%;
   width: 100%;
 }
-.context-panel.has-drawer { 
+.context-window.has-drawer { 
   padding-left: @context-drawer-width;
   
   > .context-body,
@@ -87,7 +143,7 @@ html, body, .context-application { height: 100%; }
     width: calc(~"100% - " @context-drawer-width);
   }
 }
-.context-panel.has-drawer.drawer-right {
+.context-window.has-drawer.drawer-right {
   padding-left: 0;
   padding-right: @context-drawer-width;
 }
@@ -117,13 +173,13 @@ html, body, .context-application { height: 100%; }
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
-.context-panel.has-header,
+.context-window.has-header,
 .context-drawer.has-header {
   > .context-body {
     top: @context-header-height;
   }
 }
-.context-panel.has-footer,
+.context-window.has-footer,
 .context-drawer.has-footer {
   > .context-body {
     bottom: @context-footer-height;
@@ -232,6 +288,13 @@ html, body, .context-application { height: 100%; }
   > li > a { padding: 5px 15px; }
 }
 
+.panel-login {
+  margin-top: 33%;
+  .avatar {
+    margin: @grid-gutter-width 0;
+  }
+}
+
 .form-group-condensed {
   margin-bottom: 0;
 }
@@ -249,9 +312,10 @@ html, body, .context-application { height: 100%; }
     &::-webkit-input-placeholder  { font-style: italic; } 
   }
   .control-label {
-    color: @gray-light;
+    color: @gray;
     float: left;
     font-size: 12px;
+    font-weight: normal;
     margin: 9px 0 0;
     text-transform: uppercase;
     text-align: left;

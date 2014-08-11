@@ -1,17 +1,17 @@
-<header class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
+{{#context-window}}
+  
+  {{#context-header}}
+    {{#context-toolbar}}
       {{#link-to 'index' class="navbar-brand"}}Context Admin{{/link-to}}
-    </div>
+    {{/context-toolbar}}
+  {{/context-header}}
+  
+  {{outlet modal}}
+  {{outlet}}
+  
+{{/context-window}}
 
-    <div class="collapse navbar-collapse pull-right">
-    {{#if session.loggedIn}}
-      <span>{{gravatar-image email=session.email size=34}}</span>
-      <button class="btn navbar-btn" {{action 'logout'}}>Logout</button>
-    {{/if}}
-    </div>
-  </div>
-</header>
-
-{{outlet modal}}
-{{outlet}}
+{{#if session.loggedIn}}
+  <span>{{gravatar-image email=session.email size=34}}</span>
+  <button class="btn navbar-btn" {{action 'logout'}}>Logout</button>
+{{/if}}
