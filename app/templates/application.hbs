@@ -1,17 +1,14 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    {{#link-to 'index' class="btn btn-link navbar-btn"}}<img src="http://www.fynt.ca/favicon.ico" class="avatar"> Home{{/link-to}}
+    
+    <a href="#" class="btn btn-link navbar-btn"><img class="avatar" src="/images/icon-users.jpg" alt="Yo"> Users</a>
+    
+  </div>
+</nav>
 {{#context-window}}
-  
-  {{#context-header}}
-    {{#context-toolbar}}
-      {{#link-to 'index' class="navbar-brand"}}Context Admin{{/link-to}}
-    {{/context-toolbar}}
-  {{/context-header}}
   
   {{outlet modal}}
   {{outlet}}
   
 {{/context-window}}
-
-{{#if session.loggedIn}}
-  <span>{{gravatar-image email=session.email size=34}}</span>
-  <button class="btn navbar-btn" {{action 'logout'}}>Logout</button>
-{{/if}}

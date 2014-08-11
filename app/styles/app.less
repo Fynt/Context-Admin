@@ -22,7 +22,7 @@
 // @import "vendor/bootstrap/less/button-groups.less";
 // @import "vendor/bootstrap/less/input-groups.less";
 @import "vendor/bootstrap/less/navs.less";
-// @import "vendor/bootstrap/less/navbar.less";
+@import "vendor/bootstrap/less/navbar.less";
 // @import "vendor/bootstrap/less/breadcrumbs.less";
 // @import "vendor/bootstrap/less/pagination.less";
 // @import "vendor/bootstrap/less/pager.less";
@@ -101,6 +101,11 @@
 @secondary-color-light: #C6C1D6;
 @secondary-color-lighter: #EDECEF;
 
+// compontents
+@context-header-height: 50px;
+@context-footer-height: 65px;
+@context-drawer-width: 170px;
+
 // bootstrap overwrites
 // @nav-link-padding: 5px 15px;
 
@@ -113,12 +118,36 @@
 @panel-danger-text: #fff; 
 @panel-danger-heading-bg: @red; 
 
+@navbar-height:                    @context-header-height;
+@navbar-margin-bottom:             @line-height-computed;
+@navbar-border-radius:             @border-radius-base;
+@navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
+@navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
+@navbar-collapse-max-height:       340px;
 
+@navbar-default-color:             @gray;
+@navbar-default-bg:                @gray-lighter;
+@navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 
-// compontents
-@context-header-height: 50px;
-@context-footer-height: 65px;
-@context-drawer-width: 170px;
+// Navbar links
+@navbar-default-link-color:                @gray-light;
+@navbar-default-link-hover-color:          @gray;
+@navbar-default-link-hover-bg:             transparent;
+@navbar-default-link-active-color:         @gray-darker;
+@navbar-default-link-active-bg:            transparent;
+@navbar-default-link-disabled-color:       @gray-light;
+@navbar-default-link-disabled-bg:          transparent;
+
+// Navbar brand label
+@navbar-default-brand-color:               @navbar-default-link-color;
+@navbar-default-brand-hover-color:         darken(@navbar-default-brand-color, 10%);
+@navbar-default-brand-hover-bg:            transparent;
+
+// Navbar toggle
+@navbar-default-toggle-hover-bg:           #ddd;
+@navbar-default-toggle-icon-bar-bg:        #888;
+@navbar-default-toggle-border-color:       #ddd;
+
 
 html, body, .context-application { height: 100%; }
 img { max-width: 100%; height: auto; }
@@ -289,6 +318,21 @@ img { max-width: 100%; height: auto; }
   > li > a { padding: 5px 15px; }
 }
 
+.navbar-default {
+  a {
+    text-align: center;
+  }
+  .avatar {
+    border-color: @gray-light;
+    width: 75px;
+    display: block;
+  }
+  .btn.active {
+    .box-shadow(none);
+    color: @gray;
+  }
+}
+
 .panel-login {
   margin-top: 33%;
   .avatar {
@@ -341,5 +385,5 @@ img { max-width: 100%; height: auto; }
 .avatar:extend(.img-circle) {
   border: 2px solid white;
 }
-
+.red { background: red;}
 // @import 'variables.less';

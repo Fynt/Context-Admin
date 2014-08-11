@@ -5,9 +5,9 @@ LoginController = Ember.Controller.extend Em.I18n.TranslateableProperties,
   errorFailedTranslation: 'auth.login.errors.failed'
   
   panelHeading: ( ->
-    heading = @get 'heading'
+    heading = ''
     error = @get 'error'
-    heading += ' — ' + error if (error) 
+    heading += error if (error) 
     heading
   ).property 'error', 'heading'
   
