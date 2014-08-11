@@ -1,4 +1,4 @@
-ItemsCreateController = Ember.Controller.extend
+ItemsCreateController = Ember.ObjectController.extend
 
   actions:
     create: ->
