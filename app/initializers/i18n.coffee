@@ -3,7 +3,7 @@ TRANSLATIONS =
     login:
       heading: 'Log in'
       email:
-        label: 'Email Address'
+        label: 'Email'
         placeholder: 'your@email.com'
       password:
         label: 'Password'

@@ -27,6 +27,6 @@
     "ember-cli-ic-ajax": "0.1.0",
     "ember-cli-ember-data": "0.0.4",
     "broccoli-less-single": "~0.1.4",
-    "broccoli-coffee": "~0.1.0",
+    "broccoli-coffee": "~0.1.0"
   }
 }

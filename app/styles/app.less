@@ -121,6 +121,7 @@
 @context-drawer-width: 170px;
 
 html, body, .context-application { height: 100%; }
+img { max-width: 100%; height: auto; }
 
 .context-application-primary {
   #gradient .radial(@gray-light, @gray);
@@ -291,7 +292,13 @@ html, body, .context-application { height: 100%; }
 .panel-login {
   margin-top: 33%;
   .avatar {
-    margin: @grid-gutter-width 0;
+    margin: @grid-gutter-width/2 0;
+    width: 96px;
+  }
+  
+  .form-simplified {
+    .control-label { width: 25%; }
+    .controls { width: 75%; }
   }
 }
 
@@ -318,7 +325,7 @@ html, body, .context-application { height: 100%; }
     font-weight: normal;
     margin: 9px 0 0;
     text-transform: uppercase;
-    text-align: left;
+    text-align: right;
     width: 20%;
   }
   .controls {
