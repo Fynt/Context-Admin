@@ -5,7 +5,7 @@ ItemsUpdateRoute = Ember.Route.extend
     extension = items_model.extension
     blueprint = items_model.blueprint
 
-    form = @blueprints.get_form extension.id, blueprint.get 'slug'
+    form = @blueprints.get_form blueprint
 
     type_name = @blueprints.get_type extension.id, blueprint.get 'slug'
 
