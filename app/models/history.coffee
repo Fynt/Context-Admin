@@ -4,7 +4,7 @@ History = DS.Model.extend
   extension: DS.attr 'string'
   blueprint_slug: DS.attr 'string'
   blueprint_name: DS.attr 'string'
-  item: DS.attr 'number'
+  data_id: DS.attr 'number'
   created_at: DS.attr 'date'
 
 `export default History`
