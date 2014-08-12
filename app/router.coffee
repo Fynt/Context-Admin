@@ -1,5 +1,7 @@
+`import Ember from 'ember'`
+
 Router = Ember.Router.extend
-  location: 'history'
+  location: ContextAdminENV.locationType
   rootURL: '/admin/'
 
 Router.map ->
