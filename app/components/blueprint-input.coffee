@@ -18,6 +18,11 @@ blueprintInput = Ember.Component.extend
     @get('type') != 'richtext' and @get('type') != 'belongs_to'
   ).property('type')
 
+  select_field: (->
+    field = @.get 'field'
+    "#{field}_id"
+  ).property('field')
+
   select_items: (->
     store = @get 'store'
     extension_id = @get 'extension_id'
