@@ -1,3 +1,4 @@
+`import DS from 'ember-data'`
 Group = DS.Model.extend
   label: DS.attr 'string'
   created_at: DS.attr 'date'

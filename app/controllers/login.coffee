@@ -1,4 +1,5 @@
-LoginController = Ember.Controller.extend Em.I18n.TranslateableProperties,
+`import Ember from "ember"`
+LoginController = Ember.Controller.extend Ember.I18n.TranslateableProperties,
   
   headingTranslation: 'auth.login.heading'
   errorInvalidTranslation: 'auth.login.errors.invalid'

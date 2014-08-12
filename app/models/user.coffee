@@ -1,3 +1,4 @@
+`import DS from 'ember-data'`
 User = DS.Model.extend
   group: DS.belongsTo 'group'
   email: DS.attr 'string'

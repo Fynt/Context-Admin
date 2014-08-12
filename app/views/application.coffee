@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 `import TypeSupportMixin from "../mixins/type-support"`
 
 ApplicationView = Ember.View.extend TypeSupportMixin,

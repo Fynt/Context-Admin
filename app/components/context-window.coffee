@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 ContextWindow = Ember.Component.extend
   classNames: ['context-window']
   classNameBindings: ['hasDrawer', 'hasHeader', 'hasFooter']

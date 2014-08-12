@@ -1,3 +1,5 @@
+`import Ember from "ember"`
+`import DS from 'ember-data'`
 Blueprints = Ember.Object.extend
 
   # @private

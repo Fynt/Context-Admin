@@ -1,4 +1,5 @@
-LinkLiComponent = Em.Component.extend
+`import Ember from "ember"`
+LinkLiComponent = Ember.Component.extend
   tagName: 'li'
   classNameBindings: ['active']
   active: (->

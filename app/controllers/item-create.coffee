@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 ItemCreateController = Ember.ObjectController.extend
 
   actions:

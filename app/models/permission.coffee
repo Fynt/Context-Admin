@@ -1,3 +1,4 @@
+`import DS from 'ember-data'`
 Permission = DS.Model.extend
   group: DS.belongsTo 'group'
   type: DS.attr 'string'

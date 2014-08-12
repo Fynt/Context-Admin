@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 historyAction = Ember.Component.extend
   tagName: 'span'
   classNames: ['history-action']

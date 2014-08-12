@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 UsersIndexController = Ember.ObjectController.extend
 
   actions:

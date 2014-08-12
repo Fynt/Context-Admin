@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 gravatarImage = Ember.Component.extend
   tagName: ''
   default: ''

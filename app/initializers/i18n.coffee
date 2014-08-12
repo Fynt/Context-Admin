@@ -1,3 +1,5 @@
+`import Ember from "ember"`
+
 TRANSLATIONS = 
   auth:
     login:
@@ -15,7 +17,7 @@ TRANSLATIONS =
 
 I18NInitializer = 
   name: 'i18n'
-  initialize: (container, app) ->
+  initialize: (container, application) ->
     Ember.FEATURES.I18N_TRANSLATE_HELPER_SPAN = false
     Ember.I18n.I18N_COMPILE_WITHOUT_HANDLEBARS = true
     Ember.I18n.translations = TRANSLATIONS

@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 `import TypeSupportMixin from "../mixins/type-support"`
 
 ContextPanel = Ember.Component.extend TypeSupportMixin,

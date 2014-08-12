@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 Session = Ember.Object.extend
 
   # @property [Boolean]

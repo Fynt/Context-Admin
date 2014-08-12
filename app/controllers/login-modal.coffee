@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 LoginModelController = Ember.Controller.extend
 
   reset: ->

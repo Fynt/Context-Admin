@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 ItemIndexController = Ember.ObjectController.extend
 
   actions:

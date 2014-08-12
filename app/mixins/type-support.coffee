@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 TypeSupportMixin= Ember.Mixin.create
   classTypePrefix: Ember.required(String)
   classNameBindings: ['typeClass']

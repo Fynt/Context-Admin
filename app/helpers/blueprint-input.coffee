@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 # Gives us a way to load components dynamically.
 # @see http://stackoverflow.com/questions/18972202/how-can-i-invoke-an-ember-component-dynamically-via-a-variable
 BlueprintInput = Ember.Handlebars.makeBoundHelper (type, options) ->

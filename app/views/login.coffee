@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 LoginView = Ember.View.extend
   didInsertElement: -> 
     # have to go two levels up to get to the application view because of the nested window component

@@ -1,3 +1,4 @@
+`import DS from 'ember-data'`
 Item = DS.Model.extend
   created_at: DS.attr 'date'
   extension: DS.belongsTo 'extension'

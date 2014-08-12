@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 UsersCreateController = Ember.ObjectController.extend
   actions:
     create: ->

@@ -1,3 +1,4 @@
+`import DS from 'ember-data'`
 Extension = DS.Model.extend
   name: DS.attr 'string'
   blueprints: DS.hasMany 'blueprint', async: true

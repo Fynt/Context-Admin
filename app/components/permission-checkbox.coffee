@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 permissionCheckbox = Ember.Component.extend
   tagName: 'span'
 

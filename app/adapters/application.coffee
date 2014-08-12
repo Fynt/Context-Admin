@@ -1,3 +1,4 @@
+`import DS from "ember-data"`
 # REST Adapter
 ContextRESTAdapter = DS.RESTAdapter.reopen
   host: 'http://localhost:5000'

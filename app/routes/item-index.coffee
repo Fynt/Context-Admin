@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 ItemIndexRoute = Ember.Route.extend
 
   model: (params) ->

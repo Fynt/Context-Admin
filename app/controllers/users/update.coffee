@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 UsersUpdateController = Ember.ObjectController.extend
   actions:
     update: ->

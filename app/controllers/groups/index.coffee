@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 GroupsIndexController = Ember.ObjectController.extend
 
   actions:
