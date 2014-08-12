@@ -1,0 +1,11 @@
+{{#if is_text}}
+  {{em-text label=label property=field}}
+{{/if}}
+
+{{#if is_select}}
+  {{em-select label=label property=field content=select_items optionValuePath="content.id" optionLabelPath="content.id"}}
+{{/if}}
+
+{{#if is_input}}
+  {{em-input label=label property=field}}
+{{/if}}

@@ -1,10 +1,8 @@
 <h1>{{ extension.name }}: {{ blueprint.name }}</h1>
 
-{{categories}}
-
 {{#em-form model=this.item action="create" submit_button=false}}
-  {{#each form}}
-    {{blueprint-input type property=field label=label}}
+  {{#each item in form}}
+    {{blueprint-input type=item.type field=item.field label=item.label store=controller.store extension_id=extension.id}}
   {{/each}}
 
   <button type="submit" class="btn btn-primary">Create</button>
