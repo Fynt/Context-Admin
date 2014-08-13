@@ -24,14 +24,13 @@ ItemsCreateController = Ember.ObjectController.extend
             item.set field, result
           promises.push promise
 
-      RSVP.allSettled(promises).then ->
-        console.log item
-        # item.save().then =>
-        #   #TODO For whatever reason, this does not load the model hook in the
-        #   # route, but I can't pass a string because there's two dynamic
-        #   # segments.
-        #   @transitionToRoute 'items',
-        #     extension: extension.id
-        #     blueprint_slug: blueprint.get 'slug'
+      Ember.RSVP.allSettled(promises).then ->
+        item.save().then =>
+          #TODO For whatever reason, this does not load the model hook in the
+          # route, but I can't pass a string because there's two dynamic
+          # segments.
+          @transitionToRoute 'items',
+            extension: extension.id
+            blueprint_slug: blueprint.get 'slug'
 
 `export default ItemsCreateController`
