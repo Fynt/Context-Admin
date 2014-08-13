@@ -21,7 +21,7 @@
       {{/link-to}}
     </td>
     {{#each field in list_fields}}
-      <td>{{item[field]}}</td>
+      <td>{{object-access item field}}</td>
     {{/each}}
     <td>{{relative-time date=item.created_at}}</td>
     <td><button {{action "destroy" item}} class="btn">Delete</button></td>
