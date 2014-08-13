@@ -1,11 +1,14 @@
 ImageUploadComponent = Ember.Component.extend
-  container: 'container'
+  container_id: 'upload_controls'
 
   init_uploader: ->
     uploader = new plupload.Uploader
-      runtimes: "html5"
-      browse_button: "pickfiles" # you can pass in id...
-      container: document.getElementById @get('container')
+      runtimes: "html5,html4"
+      browse_button: "pickfiles"
+      container: @get 'container_id'
+
+      url: 'http://localhost:5000/files'
+
       filters:
         max_file_size: "10mb"
         mime_types: [
@@ -39,10 +42,12 @@ ImageUploadComponent = Ember.Component.extend
           return
 
         Error: (up, err) ->
+          console.log up, err
           document.getElementById("console")
           .innerHTML += "\nError #" + err.code + ": " + err.message
           return
 
+    window.uploader = uploader
     uploader.init()
 
   didInsertElement: ->
