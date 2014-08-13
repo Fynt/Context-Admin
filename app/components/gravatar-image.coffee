@@ -1,4 +1,4 @@
-gravatarImage = Ember.Component.extend
+GravatarImage = Ember.Component.extend
   tagName: ''
   user: null
   hash: ''
@@ -8,4 +8,4 @@ gravatarImage = Ember.Component.extend
     "http://www.gravatar.com/avatar/#{@get('hash')}?s=#{@get('size')}"
   ).property('hash', 'size')
 
-`export default gravatarImage`
+`export default GravatarImage`
