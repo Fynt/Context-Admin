@@ -7,6 +7,9 @@
 <table class="table table-hover">
   <tr>
       <th>ID</th>
+      {{#each field in list_fields}}
+        <th>{{capitalize-word field}}</th>
+      {{/each}}
       <th>Created At</th>
       <td></td>
   </tr>
@@ -17,6 +20,9 @@
         {{item.id}}
       {{/link-to}}
     </td>
+    {{#each field in list_fields}}
+      <td>{{item[field]}}</td>
+    {{/each}}
     <td>{{relative-time date=item.created_at}}</td>
     <td><button {{action "destroy" item}} class="btn">Delete</button></td>
   </tr>
