@@ -13,8 +13,8 @@
       <td>
       {{gravatar-image hash=history.author.email_hash size=16}}
       {{history.author.name}} {{history-action action=history.action}} a
-      {{#link-to 'item-update' history.item.extension.id history.item.blueprint_slug history.item.id}}
-        {{history.item.blueprint_name}}
+      {{#link-to 'items.update' history.extension history.blueprint_slug history.data_id}}
+        {{history.blueprint_name}}
       {{/link-to}}
       </td>
       <td>{{relative-time date=history.created_at}}</td>
