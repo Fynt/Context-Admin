@@ -94,6 +94,11 @@
 @z-index-header: 200;
 @z-index-footer: 200;
 
+@saved-color: @blue;
+@published-color: @green;
+@created-color: @blue-light;
+@deleted-color: @red;
+
 @primary-color: #333;
 
 @secondary-color-dark: #5A546B;
@@ -197,6 +202,7 @@ img { max-width: 100%; height: auto; }
 
 // Body
 .context-body {
+  background: lighten(@gray-lighter, 2%);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -394,4 +400,35 @@ img { max-width: 100%; height: auto; }
 
 .avatar:extend(.img-circle) {
   border: 2px solid white;
+}
+
+.list-history:extend(.list-unstyled) {
+  .avatar { float: left; width: 48px; }
+}
+.list-history-item {
+  .clearfix();
+  background: @white;
+  margin-bottom: 10px;
+  padding: 5px @grid-gutter-width/2;
+}
+.list-history-action,
+.list-history-details {
+  float: left;
+  margin-left: 15px;
+  padding-top: 5px;
+}
+.list-history-action {
+  
+}
+.list-history-details {
+  width: 100px;
+}
+.list-history-save {
+  border-left: 5px solid @saved-color;
+}
+
+
+.meta {
+  color: @gray-light;
+  font-style: italic;
 }
