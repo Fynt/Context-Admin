@@ -1,14 +1,12 @@
 ImageUploadComponent = Ember.Component.extend
-  container_id: 'div#image_upload'
+  container_id: 'form#image_upload'
 
   init_uploader: ->
-    dropzone = new Dropzone @get 'container_id',
-      url: '/wut'
-      #url: "http://localhost:5000/images/upload"
-
+    dropzone = new Dropzone @get 'container_id'
     console.log dropzone
 
   didInsertElement: ->
+    Dropzone.autoDiscover = false
     Ember.run.scheduleOnce "afterRender", this, ->
       @init_uploader()
 
