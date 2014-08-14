@@ -1,22 +1,28 @@
 <h1>{{ extension.name }}: {{ blueprint.name }}</h1>
 
-{{#link-to 'item-create' extension.id blueprint.slug class="btn btn-primary"}}
+{{#link-to 'items.create' extension.id blueprint.slug class="btn btn-primary"}}
   Create a {{ extension.name }} {{ blueprint.name }}
 {{/link-to}}
 
 <table class="table table-hover">
   <tr>
       <th>ID</th>
+      {{#each field in list_fields}}
+        <th>{{capitalize-word field}}</th>
+      {{/each}}
       <th>Created At</th>
       <td></td>
   </tr>
   {{#each item in items}}
   <tr>
     <td>
-      {{#link-to 'item-update' extension.id blueprint.slug item.id}}
+      {{#link-to 'items.update' extension.id blueprint.slug item.id}}
         {{item.id}}
       {{/link-to}}
     </td>
+    {{#each field in list_fields}}
+      <td>{{object-access item field}}</td>
+    {{/each}}
     <td>{{relative-time date=item.created_at}}</td>
     <td><button {{action "destroy" item}} class="btn">Delete</button></td>
   </tr>
