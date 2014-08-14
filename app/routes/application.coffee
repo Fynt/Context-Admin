@@ -11,6 +11,13 @@ ApplicationRoute = Ember.Route.extend
     @_super(controller, model);
   
   actions:
+    
+    show_nav: ->
+      @controller.toggleProperty 'showNav'
+      
+    hide_nav: ->
+      @controller.toggleProperty 'showNav'
+    
     logout: ->
       # Reset both of the login controllers.
       @controllerFor('login').reset()
