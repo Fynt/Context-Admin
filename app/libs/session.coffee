@@ -13,7 +13,7 @@ Session = Ember.Object.extend
   # @param password [String]
   # @return [Promise]
   login: (email, password) ->
-    new Promise (resolve, reject) =>
+    new Ember.RSVP.Promise (resolve, reject) =>
       Ember.$.ajax
         type: 'POST'
         url: 'http://localhost:5000/user/login'
@@ -43,7 +43,7 @@ Session = Ember.Object.extend
   #
   # @return [Promise]
   restore: ->
-    new Promise (resolve, reject) =>
+    new Ember.RSVP.Promise (resolve, reject) =>
       Ember.$.ajax
         type: 'GET'
         url: 'http://localhost:5000/user/session'
