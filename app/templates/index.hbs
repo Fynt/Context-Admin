@@ -1,37 +1,55 @@
-{{#context-body}}
+{{#view 'window'}}
 
-<h1>History</h1>
-
-<table class="table table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each history in controller}}
-    <tr>
-      <td>
-      {{gravatar-image hash=history.author.email_hash size=16}}
-      {{history.author.name}} {{history-action action=history.action}} a
-      {{#link-to 'items.update' history.extension history.blueprint_slug history.data_id}}
-        {{history.blueprint_name}}
-      {{/link-to}}
-      </td>
-      <td>{{relative-time date=history.created_at}}</td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
-
-{{#if session.loggedIn}}
-  <span>{{gravatar-image email=session.email size=34}}</span>
-  <button class="btn navbar-btn" {{action 'logout'}}>Logout</button>
+  {{#view 'drawer'}}
+    
+    {{#view 'header'}}
+      {{#context-toolbar}}
+        
+      {{/context-toolbar}}
+    {{/view}}
+    
+    {{#view 'footer'}}
+      {{#context-toolbar}}
+        <a href="">{{gravatar-image hash=controllers.application.authenticated_user.email_hash size=48}}</a>
+        <a href=""><span class="glyphicon glyphicon-cog"></span></a>
+      {{/context-toolbar}}
+    {{/view}}
+    
+  {{/view}}
   
-  <div>{{#link-to 'users'}}Users{{/link-to}}</div>
-  <div>{{#link-to 'groups'}}Groups{{/link-to}}</div>
-  
-{{/if}}
+  {{#view 'body'}}
 
-{{/context-body}}
+  <h1>History</h1>
+
+  {{#if session.loggedIn}}
+    <button class="btn navbar-btn" {{action 'logout'}}>Logout</button>
+  {{/if}}
+
+  <table class="table table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each history in controller}}
+      <tr>
+        <td>
+        
+        {{history.author.name}} {{history-action action=history.action}} a
+        {{#link-to 'items.update' history.extension history.blueprint_slug history.data_id}}
+          {{history.blueprint_name}}
+        {{/link-to}}
+        </td>
+        <td>{{relative-time date=history.created_at}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  
+
+  {{/view}}
+
+{{/view}}

@@ -109,7 +109,7 @@
 // bootstrap overwrites
 // @nav-link-padding: 5px 15px;
 
-@icon-font-path: '/assets/bootstrap/';
+@icon-font-path: '/assets/fonts/';
 
 @panel-border-radius: @border-radius-large;
 
@@ -233,6 +233,14 @@ img { max-width: 100%; height: auto; }
   bottom: 0;
   height: @context-footer-height;
   z-index: @z-index-footer;
+  
+  .avatar {
+    float: left;
+    width: 48px;
+    position: relative;
+    top: -7px;
+    left: -7px;
+  }
 }
 .context-toolbar {
   padding: @default-spacing;
@@ -270,13 +278,7 @@ img { max-width: 100%; height: auto; }
     
   }
   
-  .avatar {
-    float: left;
-    width: 48px;
-    position: relative;
-    top: -7px;
-    left: -7px;
-  }
+  
   
   
   

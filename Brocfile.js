@@ -28,7 +28,7 @@ app.import('vendor/ember-i18n/lib/i18n.js');
 
 var bootstrapFonts = pickFiles('vendor/bootstrap/fonts', {
     srcDir: '/',
-    destDir: '/assets/bootstrap'
+    destDir: '/assets/fonts'
 });
 
 // Merge the bootstrapFonts with the ember app tree

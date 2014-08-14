@@ -4,7 +4,12 @@ ApplicationRoute = Ember.Route.extend
   beforeModel: ->
     if not @session.loggedIn
       @transitionTo 'login'
-
+  
+  setupController:(controller, model) ->
+    id = @session.get 'id'
+    controller.set 'authenticated_user', @store.findById('user', id)
+    @_super(controller, model);
+  
   actions:
     logout: ->
       # Reset both of the login controllers.
