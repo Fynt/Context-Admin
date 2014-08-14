@@ -1,5 +1,6 @@
 ImageUploadComponent = Ember.Component.extend
   container_id: 'upload_controls'
+  images: []
 
   init_uploader: ->
     (new plupload.Uploader
@@ -30,9 +31,13 @@ ImageUploadComponent = Ember.Component.extend
         UploadProgress: (uploader, file) ->
           #console.log file
 
-        FileUploaded: (uploader, file, info) ->
-          data = Ember.$.parseJSON info.response
-          console.log data
+        FileUploaded: (uploader, file, info) =>
+          if info.status == 200
+            image = Ember.$.parseJSON info.response
+
+            images = @get 'images'
+            images.pushObject image.file
+            console.log images
 
         UploadComplete: (uploader, data) ->
           #console.log data
