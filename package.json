@@ -29,6 +29,8 @@
     "originate": "0.1.5",
     "broccoli-less-single": "~0.1.4",
     "ember-cli-coffeescript": "0.0.5",
-    "ember-cli-autoprefixer": "0.0.3"
+    "ember-cli-autoprefixer": "0.0.3",
+    "broccoli-static-compiler": "~0.1.4",
+    "broccoli-merge-trees": "~0.1.4"
   }
 }
