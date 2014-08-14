@@ -16,6 +16,6 @@
     "blueimp-md5": "~1.1.0",
     "moment": "~2.7.0",
     "ember-forms": "*",
-    "dropzone": "~3.10.2"
+    "plupload": "~2.1.2"
   }
 }
