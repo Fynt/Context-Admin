@@ -3,6 +3,7 @@
 # jquery.
 JqueryInitializer =
   name: 'jquery'
+  after: 'store'
 
   initialize: ->
     Ember.$.ajaxSetup

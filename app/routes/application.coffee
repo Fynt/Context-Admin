@@ -27,15 +27,21 @@ ApplicationRoute = Ember.Route.extend
     error: (reasons, transition) ->
       if reasons.status == 401
         @session.set 'failedTransition', transition
-        
-        try
-          # Trigger the login modal.
-          @render 'login-modal',
-            into: 'application'
-            outlet: 'modal'
-        catch e
-          # The app might not be initialized yet, so try and transition to the
-          # login screen.
-          @transitionTo 'login'
+
+        # Make sure we aren't triggering a login model if they are already on
+        # the login screen.
+        if @controller.currentPath != 'login'
+          try
+            # Trigger the login modal.
+            @render 'login-modal',
+              into: 'application'
+              outlet: 'modal'
+          catch e
+            # The app might not be initialized yet, so try and transition to the
+            # login screen.
+            @transitionTo 'login'
+      else
+        alert "You broke it."
+        console.log reasons, transition
 
 `export default ApplicationRoute`
