@@ -60,6 +60,19 @@
 @white:         #fff;
 
 
+@dark-darker-transparent:  rgba(0, 0, 0, .9);
+@dark-dark-transparent:    rgba(0, 0, 0, .7);
+@dark-transparent:         rgba(0, 0, 0, .5);
+@dark-light-transparent:   rgba(0, 0, 0, .3);
+@dark-lighter-transparent: rgba(0, 0, 0, .15);
+
+@light-darker-transparent:  rgba(255, 255, 255, .9);
+@light-dark-transparent:    rgba(255, 255, 255, .7);
+@light-transparent:         rgba(255, 255, 255, .5);
+@light-light-transparent:   rgba(255, 255, 255, .3);
+@light-lighter-transparent: rgba(255, 255, 255, .15);
+
+
 // Accent colors
 // -------------------------
 @blue-light:            #C3F2F6;
@@ -278,17 +291,17 @@ img { max-width: 100%; height: auto; }
 }
 
 .btn-toolbar:extend(.btn-link) {
-  color: @gray;
+  color: @dark-transparent;
   font-size: 16px;
   padding: 0;
   margin-right: 5px;
   
   &:hover {
-    color: @gray-dark;
+    color: @dark-dark-transparent;
   }
   
   .glyphicon {
-    color: @gray-light;
+    color: @dark-lighter-transparent;
     top: 3px;
   }
 }
