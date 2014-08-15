@@ -1,5 +1,3 @@
-<h1>{{ extension.name }}: {{ blueprint.name }}</h1>
-
 {{#em-form model=this.item action="create" submit_button=false}}
   {{#each item in form}}
     {{blueprint-input type=item.type field=item.field label=item.label store=controller.store extension_id=extension.id}}

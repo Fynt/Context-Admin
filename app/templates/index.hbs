@@ -1,24 +1,6 @@
 {{#view 'window'}}
 
-  {{#view 'drawer'}}
-    
-    {{#view 'header'}}
-      {{#context-toolbar}}
-        <a {{action 'show_nav'}} class="btn btn-toolbar"><span class="glyphicon glyphicon-chevron-down"></span> Menu</a>
-      {{/context-toolbar}}
-    {{/view}}
-    
-    {{#view 'footer'}}
-      {{#context-toolbar}}
-        <a href="">{{gravatar-image hash=controllers.application.authenticated_user.email_hash size=48}}</a>
-        <a href=""><span class="glyphicon glyphicon-cog"></span></a>
-        {{#if session.loggedIn}}
-          <button class="btn navbar-btn" {{action 'logout'}}>Logout</button>
-        {{/if}}
-      {{/context-toolbar}}
-    {{/view}}
-    
-  {{/view}}
+  {{partial "partials/sidebar"}}
   
   {{#view 'body'}}
     <div class="context-header"></div>

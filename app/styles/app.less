@@ -103,10 +103,16 @@
 
 @primary-color: #333;
 
-@secondary-color-dark: #5A546B;
-@secondary-color: #635C74;
-@secondary-color-light: #C6C1D6;
-@secondary-color-lighter: #EDECEF;
+@tint-color-dark: #5A546B;
+@tint-color: #635C74;
+@tint-color-light: #C6C1D6;
+@tint-color-lighter: #EDECEF;
+
+
+@secondary-color-dark: @gray-dark;
+@secondary-color: @gray;
+@secondary-color-light: @gray-light;
+@secondary-color-lighter: @gray-lighter;
 
 // compontents
 @context-header-height: 50px;
@@ -219,7 +225,6 @@ img { max-width: 100%; height: auto; }
 
 // Body
 .context-body {
-  background: lighten(@gray-lighter, 2%);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -227,6 +232,9 @@ img { max-width: 100%; height: auto; }
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+}
+.context-window > .context-body {
+  background: lighten(@gray-lighter, 2%);
 }
 .context-window.has-header,
 .context-drawer.has-header {
@@ -315,19 +323,15 @@ img { max-width: 100%; height: auto; }
     }
     
   }
-  
-  
-  
-  
-  
+ 
 }
 
 .nav-sidebar-secondary {
-  background: @secondary-color-lighter;
+  background: @gray-lighter;
   
   .context-header { 
     background: @secondary-color-lighter;
-    border-bottom: 1px solid @secondary-color-light; 
+    border-bottom: 1px solid lighten(@secondary-color-light, 10%);
   }
   
   .context-footer {

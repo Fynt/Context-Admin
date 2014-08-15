@@ -1,0 +1,34 @@
+{{#view 'drawer'}}
+  
+  {{#view 'header'}}
+    {{#context-toolbar}}
+      <a {{action 'show_nav'}} class="btn btn-toolbar"><span class="glyphicon glyphicon-chevron-down"></span> Menu</a>
+    {{/context-toolbar}}
+  {{/view}}
+  
+  
+  {{#if extension}}
+    {{#view 'body'}}
+      <nav>
+        <ul class="nav nav-condensed">
+          {{#each extension.blueprints}}
+            {{#link-li}}
+              {{#link-to 'items' ../extension.id slug}}{{name}}{{/link-to}}
+            {{/link-li}}
+          {{/each}}
+        </ul>
+      </nav>
+    {{/view}}
+  {{/if}}
+  
+  {{#view 'footer'}}
+    {{#context-toolbar}}
+      <a href="">{{gravatar-image hash=controllers.application.authenticated_user.email_hash size=48}}</a>
+      <a href=""><span class="glyphicon glyphicon-cog"></span></a>
+      {{#if session.loggedIn}}
+        <a class="" {{action 'logout'}}>Logout</a>
+      {{/if}}
+    {{/context-toolbar}}
+  {{/view}}
+  
+{{/view}}
