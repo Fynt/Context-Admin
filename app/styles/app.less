@@ -294,15 +294,15 @@ img { max-width: 100%; height: auto; }
 }
 
 .nav-sidebar {
-  background: @secondary-color;
+  background: @tint-color;
   
   .context-header { 
-    background: @secondary-color;
-    border-bottom: 1px solid @secondary-color-dark; 
+    background: @tint-color;
+    border-bottom: 1px solid @tint-color-dark; 
   }
   
   .context-footer {
-    background: @secondary-color;
+    background: @tint-color;
   }
   
   .brand {
@@ -314,9 +314,10 @@ img { max-width: 100%; height: auto; }
     margin-top: @default-spacing;
     
     a {
-      color: @secondary-color-light;
+      color: @tint-color-light;
     }
     
+    a.active,
     a:hover { 
       background: transparent;
       color: white;
