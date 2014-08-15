@@ -21,6 +21,9 @@ Router.map ->
 
   @resource 'permissions', path: '/permissions/:group_id'
 
+
+  @route 'test-upload'
+
   return
 
 `export default Router`

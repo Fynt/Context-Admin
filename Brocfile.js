@@ -22,6 +22,7 @@ app.import('vendor/ember-data/ember-data.js');
 app.import('vendor/blueimp-md5/js/md5.min.js');
 app.import('vendor/moment/min/moment.min.js');
 app.import('vendor/ember-forms/dist/ember_forms.js'); // not sure I want to use this...
+app.import('vendor/plupload/js/plupload.full.min.js');
 app.import('vendor/ember-easyForm/index.js');
 app.import('vendor/cldr/plurals.js');
 app.import('vendor/ember-i18n/lib/i18n.js');

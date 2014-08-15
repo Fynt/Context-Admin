@@ -19,7 +19,8 @@
     "ember-forms": "*",
     "ember-easyForm": "http://builds.dockyard.com/ember-easyForm/latest/ember-easyForm.js",
     "cldr": "~1.0.1",
-    "ember-i18n": "~2.1.0"
+    "ember-i18n": "~2.1.0",
+    "plupload": "~2.1.2"
   },
   "devDependencies": {
     "bootstrap": "~3.2.0"

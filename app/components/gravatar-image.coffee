@@ -1,5 +1,4 @@
-`import Ember from "ember"`
-gravatarImage = Ember.Component.extend
+GravatarImage = Ember.Component.extend
   tagName: ''
   default: '//cdn.fynt.ca/images/default-avatar.png'
   user: null
@@ -13,4 +12,4 @@ gravatarImage = Ember.Component.extend
     url
   ).property('hash', 'size')
 
-`export default gravatarImage`
+`export default GravatarImage`
