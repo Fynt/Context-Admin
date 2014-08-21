@@ -25,19 +25,27 @@ Blueprints = Ember.Object.extend
 
     definition = blueprint.get 'definition'
     for field of definition
-      options = definition[field]
+      field_definition = definition[field]
+      field_options = definition[field].options || {}
 
-      if options.type?
+      console.log field_options
+
+      if field_options.label?
+        field_label = field_options.label
+      else
+        field_label = labelize field
+
+      if field_definition.type?
         form.push
           field: field
-          type: options.type
-          label: labelize field
+          type: field_definition.type
+          label: field_label
 
-      if options.belongs_to?
+      if field_definition.belongs_to?
         form.push
           field: field
           type: 'belongs_to'
-          label: labelize field
+          label: field_label
 
     form
 
