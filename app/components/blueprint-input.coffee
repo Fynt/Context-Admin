@@ -10,20 +10,36 @@ blueprintInput = Ember.Component.extend
     @get('type') == 'richtext'
   ).property('type')
 
-  is_select: (->
+  is_input: (->
+    @get('type') == 'text'
+  ).property('type')
+
+  is_date: (->
+    @get('type') == 'date'
+  ).property('type')
+
+  is_datetime: (->
+    @get('type') == 'datetime'
+  ).property('type')
+
+  is_number: (->
+    @get('type') == 'number'
+  ).property('type')
+
+  is_list: (->
+    @get('type') == 'list'
+  ).property('type')
+
+  is_belongs_to: (->
     @get('type') == 'belongs_to'
   ).property('type')
 
-  is_input: (->
-    @get('type') != 'richtext' and @get('type') != 'belongs_to'
-  ).property('type')
-
-  select_field: (->
+  relationship_field: (->
     field = @.get 'field'
     "#{field}_id"
   ).property('field')
 
-  select_items: (->
+  belongs_to_items: (->
     store = @get 'store'
     extension_id = @get 'extension_id'
     relationship = @get 'field'

@@ -1,11 +1,27 @@
-{{#if is_text}}
-  {{em-text label=label property=field}}
-{{/if}}
-
-{{#if is_select}}
-  {{em-select label=label property=select_field content=select_items optionValuePath="content.id" optionLabelPath="content.id"}}
-{{/if}}
-
 {{#if is_input}}
   {{em-input label=label property=field}}
+{{/if}}
+
+{{#if is_date}}
+  {{label}} date lol
+{{/if}}
+
+{{#if is_datetime}}
+  {{label}} datetime lol
+{{/if}}
+
+{{#if is_number}}
+  {{label}} number lol
+{{/if}}
+
+{{#if is_list}}
+  {{label}} list lol
+{{/if}}
+
+{{#if is_belongs_to}}
+  {{em-select label=label property=relationship_field content=belongs_to_items optionValuePath="content.id" optionLabelPath="content.id"}}
+{{/if}}
+
+{{#if is_text}}
+  {{em-text label=label property=field}}
 {{/if}}

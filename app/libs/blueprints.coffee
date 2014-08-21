@@ -20,20 +20,16 @@ Blueprints = Ember.Object.extend
   get_form: (blueprint) ->
     form = []
 
-    labelize = (s) ->
-      s[0].toUpperCase() + s[1..-1].toLowerCase()
-
     definition = blueprint.get 'definition'
     for field of definition
       field_definition = definition[field]
       field_options = definition[field].options || {}
 
-      console.log field_options
-
+      # Get the field label.
       if field_options.label?
         field_label = field_options.label
       else
-        field_label = labelize field
+        field_label = field.capitalize()
 
       if field_definition.type?
         form.push
