@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 GroupsUpdateController = Ember.ObjectController.extend
   actions:
     update: ->

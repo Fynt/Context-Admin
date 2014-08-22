@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 GroupsCreateController = Ember.ObjectController.extend
   actions:
     create: ->

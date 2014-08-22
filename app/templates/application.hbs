@@ -1,27 +1,37 @@
-<header class="navbar navbar-default" role="navigation">
+{{#if showNav}}
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="main-nav">
   <div class="container-fluid">
-    <div class="navbar-header">
-      {{#link-to 'index' class="navbar-brand"}}Context Admin{{/link-to}}
-    </div>
-
-    <div class="collapse navbar-collapse pull-right">
-    {{#if session.loggedIn}}
-      <span>{{gravatar-image email=session.email size=34}}</span>
-      <button class="btn navbar-btn" {{action 'logout'}}>Logout</button>
-    {{/if}}
+    <button {{action 'hide_nav'}} class="navbar-toggle" data-toggle="collapse" data-target="#extension-nav">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="glyphicon glyphicon-chevron-up"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="extension-nav">
+      <ul class="nav navbar-nav">
+        {{#link-li}}
+          {{#link-to 'index' }}<span class="extension-icon"></span> Home{{/link-to}}
+        {{/link-li}}
+        {{#link-li}}
+          {{#link-to 'items' 'store' 'products'  }}<span class="extension-icon"></span> Store{{/link-to}}
+        {{/link-li}}
+        {{#link-li}}
+          {{#link-to 'users' }}<span class="extension-icon"></span> Users{{/link-to}}
+        {{/link-li}}
+        {{#link-li}}
+          {{#link-to 'groups' }}<span class="extension-icon"></span> Groups{{/link-to}}
+        {{/link-li}}
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-search"></span><span class="sr-only">Search</span></a></li>
+      </ul>
+      
     </div>
   </div>
-</header>
-
-<nav class="sidebar">
-  <div>{{#link-to 'users'}}Users{{/link-to}}</div>
-  <div>{{#link-to 'groups'}}Groups{{/link-to}}</div>
-
-  <div>{{#link-to 'items' 'blog' 'posts'}}Blog Posts{{/link-to}}</div>
 </nav>
+{{/if}}
 
-<section class="pane">
+{{#view 'window'}}
   {{outlet modal}}
-
   {{outlet}}
-</section>
+{{/view}}

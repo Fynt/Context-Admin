@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 PermissionsRoute = Ember.Route.extend
 
   model: (params) ->

@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 relativeTime = Ember.Component.extend
   tagName: 'span'
   classNames: ['relative-time']

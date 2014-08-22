@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 # This initializer exists so we have a logical hook to set up some defaults for
 # jquery.
 JqueryInitializer =

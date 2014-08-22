@@ -2,6 +2,7 @@
 
 var Application = require('context-admin/app')['default'];
 var Router = require('context-admin/router')['default'];
+import Ember from 'ember';
 
 export default function startApp(attrs) {
   var App;

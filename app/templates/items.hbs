@@ -1,0 +1,89 @@
+{{#view 'window'}}
+
+  {{#view 'drawer' class="nav-sidebar"}}
+  
+    {{#view 'header'}}
+      {{#context-toolbar}}
+        <a {{action 'show_nav'}} class="btn btn-toolbar"><span class="glyphicon glyphicon-chevron-down"></span> Menu</a>
+      {{/context-toolbar}}
+    {{/view}}
+  
+    {{#view 'body'}}
+      <nav>
+        <ul class="nav nav-condensed">
+          {{#each extension.blueprints}}
+            {{#link-li}}
+              {{#link-to 'items' ../extension.id slug}}{{name}}{{/link-to}}
+            {{/link-li}}
+          {{/each}}
+        </ul>
+      </nav>
+    {{/view}}
+  
+    {{#view 'footer'}}
+      {{#context-toolbar}}
+        <a href="">{{gravatar-image hash=controllers.application.authenticated_user.email_hash size=48}}</a>
+        <a href=""><span class="glyphicon glyphicon-cog"></span></a>
+        {{#if session.loggedIn}}
+          <a class="" {{action 'logout'}}>Logout</a>
+        {{/if}}
+      {{/context-toolbar}}
+    {{/view}}
+  
+  {{/view}}
+  
+  {{#view 'body'}}
+  
+    {{#view 'window'}}
+    
+      {{#view 'drawer' class="nav-sidebar-secondary"}}
+        {{#view 'header'}}
+          {{#view 'toolbar'}} Filters... {{/view}}
+        {{/view}}
+        {{#view 'body'}}
+        <nav>
+          <ul class="nav nav-lined">
+            {{#each item in items}}
+              {{#link-li}}
+                {{#link-to 'items.update' extension.id blueprint.slug item.id}}
+                  {{item-name item}}
+                {{/link-to}}
+              {{/link-li}}
+            {{/each}}
+          </ul>
+        </nav>
+        {{/view}}
+    
+        {{#view 'footer'}}
+          {{#view 'toolbar'}}
+            {{#link-to 'items.create' extension.id blueprint.slug class="btn btn-link pull-right"}}
+              <span class="glyphicon glyphicon-plus"></span>
+            {{/link-to}}
+          {{/view}}
+        {{/view}}
+    
+      {{/view}}
+      
+      {{#view 'body'}}
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12">
+              {{outlet}}
+            </div>
+          </div>
+        </div>
+      {{/view}}
+    
+    {{/view}}
+  
+  {{/view}}
+{{/view}}
+
+
+
+
+
+
+
+
+

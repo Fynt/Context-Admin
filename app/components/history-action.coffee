@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 historyAction = Ember.Component.extend
   tagName: 'span'
   classNames: ['history-action']
@@ -5,11 +6,12 @@ historyAction = Ember.Component.extend
 
   historyAction: (->
     action = @get 'action'
-
-    if action == 'save'
-      return 'saved'
-    else
-      return action
+    switch action
+      when 'create' then 'Created'
+      when 'publish' then 'Published'
+      when 'save' then 'Saved'
+      when 'delete' then 'Deleted'
+      else action
   ).property('action')
 
 `export default historyAction`

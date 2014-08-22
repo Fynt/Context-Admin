@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 GroupsRoute = Ember.Route.extend
 
   model: (params) ->

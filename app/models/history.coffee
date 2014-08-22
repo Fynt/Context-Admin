@@ -1,3 +1,4 @@
+`import DS from 'ember-data'`
 History = DS.Model.extend
   author: DS.belongsTo 'user'
   action: DS.attr 'string'

@@ -1,3 +1,4 @@
+`import Ember from "ember"`
 UsersUpdateRoute = Ember.Route.extend
 
   model: (params) ->

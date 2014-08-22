@@ -1,10 +1,23 @@
+`import Ember from "ember"`
 ApplicationRoute = Ember.Route.extend
 
   beforeModel: ->
     if not @session.loggedIn
       @transitionTo 'login'
-
+  
+  setupController:(controller, model) ->
+    id = @session.get 'id'
+    controller.set 'authenticated_user', @store.findById('user', id)
+    @_super(controller, model);
+  
   actions:
+    
+    show_nav: ->
+      @controller.toggleProperty 'showNav'
+      
+    hide_nav: ->
+      @controller.toggleProperty 'showNav'
+    
     logout: ->
       # Reset both of the login controllers.
       @controllerFor('login').reset()

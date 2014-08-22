@@ -1,7 +1,8 @@
 /* global require, module */
 
+var pickFiles = require('broccoli-static-compiler');
+var mergeTrees = require('broccoli-merge-trees');
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
-
 var app = new EmberApp();
 
 // Use `app.import` to add additional libraries to the generated
@@ -20,7 +21,16 @@ var app = new EmberApp();
 app.import('vendor/ember-data/ember-data.js');
 app.import('vendor/blueimp-md5/js/md5.min.js');
 app.import('vendor/moment/min/moment.min.js');
-app.import('vendor/ember-forms/dist/ember_forms.js');
+app.import('vendor/ember-forms/dist/ember_forms.js'); // not sure I want to use this...
 app.import('vendor/plupload/js/plupload.full.min.js');
+app.import('vendor/ember-easyForm/index.js');
+app.import('vendor/cldr/plurals.js');
+app.import('vendor/ember-i18n/lib/i18n.js');
 
-module.exports = app.toTree();
+var bootstrapFonts = pickFiles('vendor/bootstrap/fonts', {
+    srcDir: '/',
+    destDir: '/assets/fonts'
+});
+
+// Merge the bootstrapFonts with the ember app tree
+module.exports = mergeTrees([app.toTree(),bootstrapFonts]);
