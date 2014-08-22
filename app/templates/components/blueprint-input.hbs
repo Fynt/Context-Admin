@@ -3,19 +3,19 @@
 {{/if}}
 
 {{#if is_date}}
-  {{label}} date lol
+  {{em-input type="date" label=label property=field}}
 {{/if}}
 
 {{#if is_datetime}}
-  {{label}} datetime lol
+  {{em-input type="datetime-local" label=label property=field}}
 {{/if}}
 
 {{#if is_number}}
-  {{label}} number lol
+  {{em-input type="number" label=label property=field}}
 {{/if}}
 
 {{#if is_list}}
-  {{label}} list lol
+  {{em-select label=label property=field content=list_items optionValuePath="content" optionLabelPath="content"}}
 {{/if}}
 
 {{#if is_belongs_to}}

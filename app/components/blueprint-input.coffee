@@ -1,43 +1,51 @@
-blueprintInput = Ember.Component.extend
+`import Ember from "ember"`
+
+BlueprintInput = Ember.Component.extend
   tagName: ''
   type: ''
   field: ''
   label: ''
   store: null
+  blueprint: null
   extension_id: ''
 
   is_text: (->
     @get('type') == 'richtext'
-  ).property('type')
+  ).property 'type'
 
   is_input: (->
     @get('type') == 'text'
-  ).property('type')
+  ).property 'type'
 
   is_date: (->
     @get('type') == 'date'
-  ).property('type')
+  ).property 'type'
 
   is_datetime: (->
     @get('type') == 'datetime'
-  ).property('type')
+  ).property 'type'
 
   is_number: (->
     @get('type') == 'number'
-  ).property('type')
+  ).property 'type'
 
   is_list: (->
     @get('type') == 'list'
-  ).property('type')
+  ).property 'type'
 
   is_belongs_to: (->
     @get('type') == 'belongs_to'
-  ).property('type')
+  ).property 'type'
 
   relationship_field: (->
-    field = @.get 'field'
+    field = @get 'field'
     "#{field}_id"
-  ).property('field')
+  ).property 'field'
+
+  list_items: (->
+    blueprint = @get 'blueprint'
+    blueprint.get('definition')[@get('field')]['values']
+  ).property 'field'
 
   belongs_to_items: (->
     store = @get 'store'
@@ -52,4 +60,4 @@ blueprintInput = Ember.Component.extend
       return []
   ).property('field', 'extension_id')
 
-`export default blueprintInput`
+`export default BlueprintInput`
