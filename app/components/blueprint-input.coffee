@@ -29,6 +29,10 @@ BlueprintInput = Ember.Component.extend
     @get('type') == 'number'
   ).property 'type'
 
+  is_bool: (->
+    @get('type') == 'bool'
+  ).property 'type'
+
   is_list: (->
     @get('type') == 'list'
   ).property 'type'
