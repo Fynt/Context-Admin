@@ -2,7 +2,8 @@
 
 {{#em-form model=this.item action="update" submit_button=false}}
   {{#each item in form}}
-    {{blueprint-input type=item.type field=item.field label=item.label store=controller.store extension_id=extension.id}}
+    {{blueprint-input type=item.type field=item.field label=item.label
+      store=controller.store blueprint=blueprint extension_id=extension.id}}
   {{/each}}
 
   <button type="submit" class="btn btn-primary">Update</button>

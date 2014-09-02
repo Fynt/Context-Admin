@@ -8,8 +8,6 @@ App = Ember.Application.extend
   modulePrefix: 'context-admin' # TODO: loaded via config
   Resolver: Resolver
 
-console.log 'yo'
-
 loadInitializers App, 'context-admin'
 
 `export default App`
